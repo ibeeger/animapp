@@ -1,8 +1,8 @@
 /*
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
-* @Last Modified by:   willclass
-* @Last Modified time: 2017-01-06 19:01:24
+* @Last Modified by:   ibeeger
+* @Last Modified time: 2017-01-07 18:27:57
 */
 
 'use strict';
@@ -45,12 +45,13 @@ class List extends Component {
     let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/small/"+rowData.img;
     let cur = (rowID*1+1);
     let type = this.props.type;
+    let _this = this;
     return (
       <View style={styles.itempic}>
      
           <View  style={styles.row}>
            <TouchableHighlight onPress={() => {
-             this.props.navigator.push({id:"item",index:0,params:{_id:rowData._id,type:type}})
+             _this.props.navigator.push({id:"item",index:0,params:{_id:rowData._id,type:type}})
           }}>
             <View style={styles.ImgView}>
                   <Image source={{uri:url}}  style={styles.Img} />

@@ -1,8 +1,8 @@
 /*
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
-* @Last Modified by:   willclass
-* @Last Modified time: 2017-01-06 18:46:30
+* @Last Modified by:   ibeeger
+* @Last Modified time: 2017-01-07 18:12:19
 */
 
 'use strict';
@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  Image,
   TouchableHighlight,
   View,
   ListView
@@ -25,10 +26,12 @@ class Index extends Component {
 	constructor(props) {
 	  super(props);
 	  this.state = {
-      load:false,
-       dataSource: null
+       load:false,
+       dataSource: null,
+       swiperData:[]
     };
     this.renderRow = this.renderRow.bind(this);
+    this.renderSwiper = this.renderSwiper.bind(this);
 	}
 
   componentDidMount(){
@@ -36,7 +39,8 @@ class Index extends Component {
       Util.fetchData({index:true}).then(function(data) {
         _this.setState({
           load:true,
-          dataSource:ds.cloneWithRows(data.data)
+          dataSource:ds.cloneWithRows(data.data),
+          swiperData:data["swiperData"]
         })
     })
   }
@@ -79,28 +83,59 @@ class Index extends Component {
           )
   }
 
+  renderSwiper(){
+      let list = this.state.swiperData;
+      let _this = this;
+     
+      if (list.length>0) {
+          let arr = list.map(function(item,i){
+              let link,type,url,name = item["name"] || "动物世界";
+              i++;
+              if (item.type) {
+                url = "http://oss.files.ibeeger.com/anims/"+item.type+"/"+item.img;
+              }else{
+                url = item.img;
+              };
+              if (item.link) {
+                return (<View style={styles.swiperItem} key={i}>
+                          <TouchableHighlight onPress={() => {
+                           _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name}})
+                        }}>
+                            <View style={styles.swiperItem}>
+                              <Image source={{uri:url}}  style={styles.IndexImg} />
+                            </View>
+                        </TouchableHighlight>
+                           <Text style={styles.pictext}>{i}</Text>
+                       </View>
+                )
+              }else{
+                return (<View style={styles.swiperItem}  key={i}>
+                        <Image source={{uri:url}}  style={styles.IndexImg} />
+                    <Text style={styles.pictext}>{i}</Text>
+                </View>
+                )
+              }
+          })
+
+        return (
+            <Swiper style={styles.swiperMain} threshold={20} autoplay={true} autoplayTimeout={3} autoplayDirection={false}>
+                {arr}
+             </Swiper>
+        )
+      }
+      
+  }
+  
 	render(){
-    let main = this.renderLoad();
+    let main= this.renderLoad(),swiper = this.renderLoad();
     if (this.state.load) {
         main = this.renderList();
+        swiper = this.renderSwiper();
     }
 		return(
     <View style={styles.main}>
   		 <View style={styles.swiperMain}>
-  			 <Swiper style={styles.swiperMain} threshold={20}>
-              <View style={styles.swiperItem1}>
-                <Text style={styles.text}>第一页</Text>
-              </View>
-              <View style={styles.swiperItem}>
-                <Text style={styles.text}>第二页</Text>
-              </View>
-              <View style={styles.swiperItem}>
-                <Text style={styles.text}>第三页</Text>
-              </View>
-              <View style={styles.swiperItem}>
-                <Text style={styles.text}>第四页</Text>
-              </View>
-            </Swiper>
+  			  {swiper}
         </View>
         <View style={styles.listMain}>
           {main}

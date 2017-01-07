@@ -1,8 +1,8 @@
 /*
 * @Author: ibeeger
 * @Date:   2017-01-05 16:11:29
-* @Last Modified by:   willclass
-* @Last Modified time: 2017-01-06 18:44:06
+* @Last Modified by:   ibeeger
+* @Last Modified time: 2017-01-07 18:14:50
 */
 
 'use strict';
@@ -12,10 +12,14 @@ import React from 'react';
 import Index from './pages/index'
 import List from './pages/list'
 import Item from './pages/item'
+import Webpage from './pages/showweb'
+import Submit from './pages/submit'
 const RouteMap = {
     'home': {index: 0, component: Index, params: {}},
     'list': {index: 1, component: List, params: {}},
-    'item': {index: 2, component: Item, params: {}}
+    'item': {index: 2, component: Item, params: {}},
+    'webpage': {index: 3, component: Webpage, params: {}},
+    'submit': {index: 3, component: Submit, params: {}},
 };
 
 

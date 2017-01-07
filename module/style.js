@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-06 19:25:49
+ * @Last Modified time: 2017-01-07 18:42:55
  */
 
 'use strict';
@@ -136,17 +136,12 @@ const styles = StyleSheet.create({
 		bottom:0,
 		left:0
 	},
-	swiperItem1: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#99ffee',
-	},
 	swiperItem: {
-		flex: 1,
+		width:w,
+		height:200,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#92BBD9',
+		backgroundColor: '#f0f0f0',
 	},
 	picshow:{
 		height:200,
@@ -158,9 +153,18 @@ const styles = StyleSheet.create({
 		height: 100,
 		alignSelf: "center",
 	},
+	IndexImg:{
+		width:w,
+		height:200,
+		backgroundColor:"#fff",
+	},
 	desc:{
 		padding:15,
 		flex:1,
+	},
+	webView:{
+		width:w,
+		backgroundColor:"#f0f0f0"
 	},
 	descfont:{
 		fontSize:14,
@@ -172,6 +176,14 @@ const styles = StyleSheet.create({
 	},
 	scrollMain:{
 		 flex:1,
+	},
+	textinput:{
+		height:300,
+		textAlignVertical:"top",
+		borderWidth:0.5,
+		borderColor:"#ccc",
+		backgroundColor:"#fff",
+		width:(w-6)
 	}
 })
 

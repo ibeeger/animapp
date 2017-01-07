@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-06 19:21:55
+* @Last Modified time: 2017-01-07 18:30:55
 */
 
 'use strict';
@@ -33,7 +33,6 @@ class Item extends Component {
 	   let _this = this;
 	   
       Util.fetchData({animid:props._id,typeid:props.type}).then(function(data) {
-      	console.log(data);
       	if (data.code==0) {
       		  let _data = data.data[0];
       		  _this.setState({
@@ -62,7 +61,7 @@ class Item extends Component {
 
 	renderLoadingImg(){
 		 return(
-              <Text style={styles.msgtext,{position:'absolute',left:w2,top:70}}>{this.state.msg}</Text>
+              <Text style={styles.msgtext,{position:'absolute',left:(w2-35),top:70}}>{this.state.msg}</Text>
           )
 	}
 
@@ -88,7 +87,7 @@ class Item extends Component {
 				show = 0;
 				imgItem = this.renderLoadingImg();
 			}
-
+			let fed = "?";
 			return(
 				<View style={styles.main}>
 					<View style={styles.header}>
@@ -96,13 +95,22 @@ class Item extends Component {
 						<TouchableHighlight onPress={() => {
 					           navigator.pop()
 					       }}>
-					       <View style={styles.titleBtn}> 
-					       <Text>返回</Text>
-					       </View>
+						       <View style={styles.titleBtn}> 
+						       		<Text>返回</Text>
+						       </View>
 					       </TouchableHighlight>
-       				</View>
+       					</View>
 						<View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{name}</Text></View>
-						<View style={styles.titleBtn}></View>
+
+						<View style={styles.titleBtn}>
+							<TouchableHighlight onPress={() => {
+					          		 navigator.push({id:'submit',index:0,params:{}})
+					      		 }}>
+							       <View style={styles.titleBtn}> 
+							      	 <Text>{fed}</Text>
+							       </View>
+					       </TouchableHighlight>
+						</View>
 					</View>
 					<View style={styles.container}>
 						<View style={styles.picshow}>

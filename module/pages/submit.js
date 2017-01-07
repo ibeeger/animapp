@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-06 20:30:33
+* @Last Modified time: 2017-01-07 18:43:21
 */
 
 'use strict';
@@ -16,7 +16,8 @@ import {
   TouchableHighlight,
   ScrollView,
   Button,
-  TextInput
+  TextInput,
+  Alert
 } from 'react-native';
 
 import styles from "../style.js"
@@ -32,20 +33,18 @@ class Submit extends Component {
 	  	name:"反馈建议",
 	  	msg:"加载中"
 	  };
-
-     
-      this.loadImg = this.loadImg.bind(this);
 	}
-
+	onPressLearnMore(){
+		Alert.alert(
+            '提示信息',
+            "提交成功",
+            [
+              {text: '取消', onPress: () => console.log('Cancel Pressed!')},
+              {text: '确定', onPress: () => console.log("success")}
+            ]
+          );
+	}
   
-	renderLoading(){
-		 return(
-            <View style={styles.message}>
-              <Text style={styles.msgtext}>{this.state.msg}</Text>
-            </View>
-          )
-	}
-
 	render(){
 		let navigator = this.props.navigator;
 		let {name} = this.state;
@@ -53,8 +52,8 @@ class Submit extends Component {
 			return(
 				<View style={styles.main}>
 					<View style={styles.header}>
-						<View style={styles.titleBtn}>  
-						<TouchableHighlight onPress={() => {
+						 <View style={styles.titleBtn}>  
+						   <TouchableHighlight onPress={() => {
 					           navigator.pop()
 					       }}>
 					       <View style={styles.titleBtn}> 
@@ -63,21 +62,24 @@ class Submit extends Component {
 					       </TouchableHighlight>
        				</View>
 						<View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{name}</Text></View>
-						<View style={styles.titleBtn}></View>
+						<View style={styles.titleBtn}>
+							
+						</View>
 					</View>
 					<View style={styles.container}>
 						<View style={styles.desc}>
 							<ScrollView style={styles.scrollMain}>
-								<TextInput style={styles.textinput}>
+								<TextInput style={styles.textinput} >
 									 
 								</TextInput>
 								<Button
-								  onPress={onPressLearnMore}
+								  onPress={this.onPressLearnMore}
 								  title="提 交"
 								  color="#841584"
 								  accessibilityLabel="提交反馈信息"
 								/>
 							</ScrollView>
+							<Text>1.0.0</Text>
 						</View>
 					</View>
 				</View>
