@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-07 18:42:55
+ * @Last Modified time: 2017-01-07 18:58:53
  */
 
 'use strict';
@@ -177,13 +177,18 @@ const styles = StyleSheet.create({
 	scrollMain:{
 		 flex:1,
 	},
+	textView:{
+		height:300,
+		flex:1,
+		marginBottom:5,
+	},
 	textinput:{
 		height:300,
+		flex:1,
 		textAlignVertical:"top",
 		borderWidth:0.5,
 		borderColor:"#ccc",
-		backgroundColor:"#fff",
-		width:(w-6)
+		backgroundColor:"#fff"
 	}
 })
 

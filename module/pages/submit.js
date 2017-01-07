@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 18:43:21
+* @Last Modified time: 2017-01-07 18:58:23
 */
 
 'use strict';
@@ -57,7 +57,7 @@ class Submit extends Component {
 					           navigator.pop()
 					       }}>
 					       <View style={styles.titleBtn}> 
-					       <Text>返回</Text>
+					       		<Text>返回</Text>
 					       </View>
 					       </TouchableHighlight>
        				</View>
@@ -69,9 +69,11 @@ class Submit extends Component {
 					<View style={styles.container}>
 						<View style={styles.desc}>
 							<ScrollView style={styles.scrollMain}>
-								<TextInput style={styles.textinput} >
+								<View style={styles.textView}>
+								<TextInput style={styles.textinput} multiline={true}>
 									 
 								</TextInput>
+								</View>
 								<Button
 								  onPress={this.onPressLearnMore}
 								  title="提 交"
@@ -79,7 +81,7 @@ class Submit extends Component {
 								  accessibilityLabel="提交反馈信息"
 								/>
 							</ScrollView>
-							<Text>1.0.0</Text>
+							<Text>version 1.0.0</Text>
 						</View>
 					</View>
 				</View>

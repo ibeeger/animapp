@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 18:30:55
+* @Last Modified time: 2017-01-07 18:56:58
 */
 
 'use strict';
@@ -87,7 +87,7 @@ class Item extends Component {
 				show = 0;
 				imgItem = this.renderLoadingImg();
 			}
-			let fed = "?";
+			let fed = "反馈";
 			return(
 				<View style={styles.main}>
 					<View style={styles.header}>
