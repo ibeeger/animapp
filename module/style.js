@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-07 18:58:53
+ * @Last Modified time: 2017-01-07 19:15:13
  */
 
 'use strict';
@@ -113,8 +113,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	swiperMain: {
-		height: 200,
-		overflow: "hidden"
+		height: 200
 	},
 	cattext:{
 		fontSize: 20,
@@ -142,6 +141,9 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#f0f0f0',
+	},
+	dotpositon:{
+		 marginBottom:10,
 	},
 	picshow:{
 		height:200,
@@ -180,11 +182,15 @@ const styles = StyleSheet.create({
 	textView:{
 		height:300,
 		flex:1,
+		padding:5,
+		justifyContent:"center",
+		alignItems:"center",
 		marginBottom:5,
 	},
 	textinput:{
 		height:300,
-		flex:1,
+		padding:5,
+		width:(w*1-20),
 		textAlignVertical:"top",
 		borderWidth:0.5,
 		borderColor:"#ccc",

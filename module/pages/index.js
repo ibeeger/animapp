@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 18:12:19
+* @Last Modified time: 2017-01-07 19:10:05
 */
 
 'use strict';
@@ -105,20 +105,18 @@ class Index extends Component {
                               <Image source={{uri:url}}  style={styles.IndexImg} />
                             </View>
                         </TouchableHighlight>
-                           <Text style={styles.pictext}>{i}</Text>
                        </View>
                 )
               }else{
                 return (<View style={styles.swiperItem}  key={i}>
                         <Image source={{uri:url}}  style={styles.IndexImg} />
-                    <Text style={styles.pictext}>{i}</Text>
                 </View>
                 )
               }
           })
 
         return (
-            <Swiper style={styles.swiperMain} threshold={20} autoplay={true} autoplayTimeout={3} autoplayDirection={false}>
+            <Swiper style={styles.swiperMain} dotStyle={styles.dotpositon} threshold={20} autoplay={true} autoplayTimeout={5} autoplayDirection={true}>
                 {arr}
              </Swiper>
         )
