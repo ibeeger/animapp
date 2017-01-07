@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 19:10:05
+* @Last Modified time: 2017-01-07 19:27:07
 */
 
 'use strict';
@@ -116,7 +116,7 @@ class Index extends Component {
           })
 
         return (
-            <Swiper style={styles.swiperMain} dotStyle={styles.dotpositon} threshold={20} autoplay={true} autoplayTimeout={5} autoplayDirection={true}>
+            <Swiper style={styles.swiperMain} showsPagination={true} paginationStyle={styles.dotpositon} threshold={20} autoplay={true} autoplayTimeout={5} autoplayDirection={true}>
                 {arr}
              </Swiper>
         )

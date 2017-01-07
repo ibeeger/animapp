@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-07 19:15:13
+ * @Last Modified time: 2017-01-07 19:27:57
  */
 
 'use strict';
@@ -143,7 +143,11 @@ const styles = StyleSheet.create({
 		backgroundColor: '#f0f0f0',
 	},
 	dotpositon:{
-		 marginBottom:10,
+		 top:160,
+		 left:10,
+		 right:0,
+		 height:20,
+		 position:"absolute"
 	},
 	picshow:{
 		height:200,
@@ -192,7 +196,9 @@ const styles = StyleSheet.create({
 		padding:5,
 		width:(w*1-20),
 		textAlignVertical:"top",
-		borderWidth:0.5,
+		borderWidth:1,
+		marginLeft:2,
+		marginRight:2,
 		borderColor:"#ccc",
 		backgroundColor:"#fff"
 	}
