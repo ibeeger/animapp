@@ -58,7 +58,7 @@ class List extends Component {
               </View>
                </TouchableHighlight>
             <Text style={styles.pictext}>
-               {cur}. {rowData.name}
+               {rowData.name}
             </Text>
           </View>
      
@@ -106,7 +106,7 @@ class List extends Component {
                   </View>
                  </TouchableHighlight>
               </View>
-            <View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{this.props.title}{this.state.num}</Text></View>
+            <View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{this.props.title} {this.state.num}</Text></View>
             <View style={styles.titleBtn}></View>
           </View>
 

@@ -7,9 +7,7 @@
 
 'use strict';
 
-import {URL} from "./config.js"
-
-console.log(URL);
+import {URL} from "./config"
 
 class Util {
 	static fetchData(postdata) {

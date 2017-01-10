@@ -13,7 +13,9 @@ import {
   Image,
   TouchableHighlight,
   View,
-  ListView
+  ListView,
+  Linking,
+  Alert
 } from 'react-native';
 
 import styles from "../style"
@@ -27,16 +29,28 @@ class Index extends Component {
 	  super(props);
 	  this.state = {
        load:false,
-       dataSource: null,
+       dataSource: ds.cloneWithRows([{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."}]),
        swiperData:[]
     };
     this.renderRow = this.renderRow.bind(this);
     this.renderSwiper = this.renderSwiper.bind(this);
 	}
-
+  
   componentDidMount(){
       let _this = this;
       Util.fetchData({index:true}).then(function(data) {
+        if (data["upgrade"]) {
+            let msg = data["upgrademsg"] || "有新版本升级";
+            let upgradeurl = data["upgradeurl"] || "http://www.ibeeger.com";
+          Alert.alert(
+            '更新提示',
+            msg,
+            [
+              {text: '取消', onPress: () => console.log('Cancel Pressed!')},
+              {text: '确定', onPress: () => Linking.openURL(upgradeurl)},
+            ]
+          );
+        }
         _this.setState({
           load:true,
           dataSource:ds.cloneWithRows(data.data),
@@ -125,9 +139,8 @@ class Index extends Component {
   }
   
 	render(){
-    let main= this.renderLoad(),swiper = this.renderLoad();
+    let main = this.renderList(),swiper = this.renderLoad();
     if (this.state.load) {
-        main = this.renderList();
         swiper = this.renderSwiper();
     }
 		return(

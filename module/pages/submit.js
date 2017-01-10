@@ -67,23 +67,27 @@ class Submit extends Component {
 						</View>
 					</View>
 					<View style={styles.container}>
-						<View style={styles.desc}>
 							<ScrollView style={styles.scrollMain}>
 								<View style={styles.textView}>
-								<TextInput style={styles.textinput} multiline={true}>
+								<TextInput style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
 									 
 								</TextInput>
 								</View>
+								<View style={styles.btn}>
 								<Button
 								  onPress={this.onPressLearnMore}
 								  title="提 交"
 								  color="#841584"
+								  
 								  accessibilityLabel="提交反馈信息"
 								/>
+								</View>
 							</ScrollView>
-							<Text>version 1.0.0</Text>
+							<View style={styles.viewVersion}>
+							<Text style={styles.versionfont}>QQ:80301983</Text>
+							<Text style={styles.versionfont}>Version:1.0.0</Text>
+							</View>
 						</View>
-					</View>
 				</View>
 			)
 		

@@ -65,9 +65,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "rgb(24,189,255)",
 	},
 	listMain:{
-		overflow:"hidden",
 		alignItems: 'center',
-		backgroundColor:"#fff",
+		backgroundColor:"#f0f0f0",
 		flex: 1,
 	},
 	list: {
@@ -82,8 +81,8 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	msgtext: {
-		fontSize: 16,
-		color: "#555555",
+		fontSize: 12,
+		color: "#f0f0f0",
 		alignSelf:"center"
 	},
 
@@ -111,9 +110,10 @@ const styles = StyleSheet.create({
 		height: 100,
 		justifyContent: 'center',
 		alignItems: 'center',
+		borderRadius:5
 	},
 	swiperMain: {
-		height: 200
+		height: 200,
 	},
 	cattext:{
 		fontSize: 20,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
 		padding:5,
 		textAlign: 'center',
 		color: "#222",
-		backgroundColor:"#fff",
+		backgroundColor:"rgba(255,255,255,0.5)",
 		position:"absolute",
 		bottom:0,
 		left:0
@@ -140,17 +140,17 @@ const styles = StyleSheet.create({
 		height:200,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#f0f0f0',
+		backgroundColor: '#ccc',
 	},
 	dotpositon:{
-		 top:160,
+		 top:170,
 		 left:10,
-		 right:0,
+		 right:10,
 		 height:20,
 		 position:"absolute"
 	},
 	picshow:{
-		height:200,
+		height:280,
 		width:w,
 		alignSelf:"center"
 	},
@@ -165,7 +165,6 @@ const styles = StyleSheet.create({
 		backgroundColor:"#fff",
 	},
 	desc:{
-		padding:15,
 		flex:1,
 	},
 	webView:{
@@ -173,8 +172,17 @@ const styles = StyleSheet.create({
 		backgroundColor:"#f0f0f0"
 	},
 	descfont:{
+		padding:15,
 		fontSize:14,
 		lineHeight:20,
+	},
+	pinyinView:{
+		justifyContent:"center",
+		alignItems:"center",
+		paddingTop:20,
+	},
+	pinyinText:{
+		fontSize:40,
 	},
 	Img: {
 		resizeMode: Image.resizeMode.cover,
@@ -182,25 +190,37 @@ const styles = StyleSheet.create({
 	},
 	scrollMain:{
 		 flex:1,
+		 width:w,
 	},
 	textView:{
 		height:300,
 		flex:1,
-		padding:5,
+		marginTop:15,
+		backgroundColor:"#fff",
+		width:w,
 		justifyContent:"center",
 		alignItems:"center",
-		marginBottom:5,
+		marginBottom:15,
+	},
+	btn:{
+		marginLeft:10,
+		marginRight:10,
 	},
 	textinput:{
 		height:300,
-		padding:5,
 		width:(w*1-20),
 		textAlignVertical:"top",
-		borderWidth:1,
-		marginLeft:2,
-		marginRight:2,
-		borderColor:"#ccc",
-		backgroundColor:"#fff"
+		borderWidth:0.5,
+		borderRadius:5,
+		borderColor:"#999",
+		backgroundColor:"transparent"
+	},
+	versionfont:{
+		fontSize:12,
+		color:"#ccc"
+	},
+	viewVersion:{
+		paddingBottom:10
 	}
 })
 

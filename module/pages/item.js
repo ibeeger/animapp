@@ -61,7 +61,7 @@ class Item extends Component {
 
 	renderLoadingImg(){
 		 return(
-              <Text style={styles.msgtext,{position:'absolute',left:(w2-35),top:70}}>{this.state.msg}</Text>
+              <Text style={styles.msgtext,{position:'absolute',left:(w2-15),top:70}}>{this.state.msg}</Text>
           )
 	}
 
@@ -118,16 +118,12 @@ class Item extends Component {
 									  {imgItem}
 									  <Image source={{uri:url}} onLoad={this.loadImg}  style={[styles.Img,{opacity:show}]} />
 								</View>
-							   <Text style={styles.pictext}>
-								 {pinyin}
-							  </Text>
+
 						</View>
 						<View style={styles.desc}>
-							<ScrollView style={styles.scrollMain}>
-								<Text style={styles.descfont}>
-									{desc}
-								</Text>
-							</ScrollView>
+								<View style={styles.pinyinView}>
+									 <Text style={styles.pinyinText}>{pinyin}</Text>
+								</View>
 						</View>
 					</View>
 				</View>
