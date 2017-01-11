@@ -1,7 +1,7 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
+ * @flowTextToSpeech
  */
 
 import React, { Component } from 'react';
@@ -13,8 +13,11 @@ import {
   View,
   Navigator,
   BackAndroid,
-  Platform
+  Platform,
+  NativeModules
 } from 'react-native';
+
+import TTS from "react-native-tts"
 
 const INITIAL_ROUTE = {
   id:"home",
@@ -25,8 +28,6 @@ const INITIAL_ROUTE = {
 export default class Anims extends Component {
   constructor(props) {
     super(props);
-  
-
     this.onBackAndroid = this.onBackAndroid.bind(this);
   }
 
@@ -64,6 +65,7 @@ export default class Anims extends Component {
   }
   
   render() {
+    console.log(TTS);
     return (
          <Navigator
           initialRoute={INITIAL_ROUTE}

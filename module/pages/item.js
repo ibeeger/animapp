@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 18:56:58
+* @Last Modified time: 2017-01-11 20:38:28
 */
 
 'use strict';
@@ -16,6 +16,8 @@ import {
   TouchableHighlight,
   ScrollView
 } from 'react-native';
+
+import TTS from "react-native-tts"
 
 import styles from "../style.js"
 import Util from "../util.js"
@@ -123,7 +125,18 @@ class Item extends Component {
 						<View style={styles.desc}>
 								<View style={styles.pinyinView}>
 									 <Text style={styles.pinyinText}>{pinyin}</Text>
+									 <Text style={styles.nameText}>{name}</Text>
 								</View>
+								 <View style={styles.playBtn}> 
+									<TouchableHighlight onPress={() => {
+						           		TTS.speak(name)
+						      			 }}>
+							       <View style={styles.playBtn}> 
+							       		<Text style={styles.playText}>发音</Text>
+							       </View>
+						      		 </TouchableHighlight>
+					      		  </View>
+       					 
 						</View>
 					</View>
 				</View>

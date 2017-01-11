@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-07 19:27:57
+ * @Last Modified time: 2017-01-11 20:36:13
  */
 
 'use strict';
@@ -182,7 +182,23 @@ const styles = StyleSheet.create({
 		paddingTop:20,
 	},
 	pinyinText:{
-		fontSize:40,
+		fontSize:36,
+	},
+	playBtn:{
+		width:70,
+		height:30,
+		borderRadius:15,
+		alignSelf:"center",
+		backgroundColor:"#60adfd",
+		justifyContent:"center",
+		alignItems:"center"
+	},
+	playText:{
+		fontSize:25,
+		color:"#c00"
+	},
+	nameText:{
+		fontSize:50
 	},
 	Img: {
 		resizeMode: Image.resizeMode.cover,
