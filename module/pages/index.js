@@ -2,11 +2,12 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 19:27:07
+* @Last Modified time: 2017-01-12 11:11:21
 */
 
 'use strict';
 import React, { Component } from 'react';
+
 import {
   StyleSheet,
   Text,
@@ -17,6 +18,8 @@ import {
   Linking,
   Alert
 } from 'react-native';
+
+import {VERSION} from "../config"
 
 import styles from "../style"
 import Util from "../util.js"
@@ -39,9 +42,10 @@ class Index extends Component {
   componentDidMount(){
       let _this = this;
       Util.fetchData({index:true}).then(function(data) {
+        //判断新版本
         if (data["upgrade"]) {
-            let msg = data["upgrademsg"] || "有新版本升级";
-            let upgradeurl = data["upgradeurl"] || "http://www.ibeeger.com";
+            let msg = data["upgrade"]["msg"] || "有新版本升级";
+            let upgradeurl = data["url"] || "http://www.ibeeger.com";
           Alert.alert(
             '更新提示',
             msg,

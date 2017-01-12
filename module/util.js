@@ -2,15 +2,16 @@
  * @Author: ibeeger
  * @Date:   2017-01-05 16:25:59
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-05 16:31:06
+ * @Last Modified time: 2017-01-12 10:38:45
  */
 
 'use strict';
 
-import {URL} from "./config"
+import {URL,VERSION} from "./config"
 
 class Util {
 	static fetchData(postdata) {
+		postdata = Object.assign({},postdata,{v:VERSION})
 		return fetch(URL, {
 			method: 'POST',
 			headers: {
