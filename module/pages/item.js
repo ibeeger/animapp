@@ -129,7 +129,7 @@ class Item extends Component {
 								</View>
 								 <View style={styles.playBtnOut}> 
 									<TouchableHighlight onPress={() => {
-						           		TTS.speak(name)
+						           		TTS.speak(name,"1")
 						      			 }}>
 							       <View style={styles.playBtn}> 
 							       		<Text style={styles.playText}>发音</Text>
