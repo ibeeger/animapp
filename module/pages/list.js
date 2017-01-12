@@ -71,7 +71,7 @@ class List extends Component {
           <View style={styles.listMain}>
             <ListView  contentContainerStyle={styles.list}
                   initialListSize={8}
-                  pageSize={1}
+                  pageSize={6}
                   onEndReachedThreshold={10}
                   dataSource={this.state.dataSource}
                   renderRow={this.renderRow}

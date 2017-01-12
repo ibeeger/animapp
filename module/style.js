@@ -184,10 +184,16 @@ const styles = StyleSheet.create({
 	pinyinText:{
 		fontSize:36,
 	},
+	playBtnOut:{
+		marginTop:20,
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+		width:70
+	},
 	playBtn:{
 		width:70,
 		height:30,
-		borderRadius:15,
 		alignSelf:"center",
 		backgroundColor:"#60adfd",
 		justifyContent:"center",

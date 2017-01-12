@@ -127,7 +127,7 @@ class Item extends Component {
 									 <Text style={styles.pinyinText}>{pinyin}</Text>
 									 <Text style={styles.nameText}>{name}</Text>
 								</View>
-								 <View style={styles.playBtn}> 
+								 <View style={styles.playBtnOut}> 
 									<TouchableHighlight onPress={() => {
 						           		TTS.speak(name)
 						      			 }}>

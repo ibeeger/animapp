@@ -17,7 +17,6 @@ import {
   NativeModules
 } from 'react-native';
 
-import TTS from "react-native-tts"
 
 const INITIAL_ROUTE = {
   id:"home",
@@ -65,7 +64,6 @@ export default class Anims extends Component {
   }
   
   render() {
-    console.log(TTS);
     return (
          <Navigator
           initialRoute={INITIAL_ROUTE}
