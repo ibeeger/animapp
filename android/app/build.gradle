@@ -119,6 +119,12 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    // 移除lint检查的error
+    // lintOptions {
+    //   abortOnError false
+    // }
+
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->

@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-13 13:45:32
+ * @Last Modified time: 2017-01-13 20:45:04
  */
 
 'use strict';
@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
 		alignSelf:"center",
 		justifyContent:"center",
 		alignItems:"center",
+		backgroundColor:"rgba(255,255,255,0.5)"
 
 	},
 	playText:{

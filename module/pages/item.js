@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 13:22:50
+* @Last Modified time: 2017-01-13 20:54:42
 */
 
 'use strict';
@@ -32,6 +32,8 @@ class Item extends Component {
 	  	data:null,
 	  	msg:"加载中",
 	  };
+
+   	 
 
 	   let _this = this;
 	   
@@ -70,7 +72,7 @@ class Item extends Component {
 		let prev = this.state.prev;
 		let next = this.state.next;
 		if (prev ==0) {
-			ToastAndroid.show('已经是第一张了', ToastAndroid.LONG)
+			ToastAndroid.show('已经是第一张了', ToastAndroid.SHORT)
 			return;
 		}
 
@@ -112,7 +114,7 @@ class Item extends Component {
 		let next = this.state.next;
 		let prev = this.state.prev;
 		if (next ==this.state.arr.length) {
-			ToastAndroid.show('已经是最后一张了', ToastAndroid.LONG)
+			ToastAndroid.show('已经是最后一张了', ToastAndroid.SHORT)
 			return;
 		}
 		this.setState({
@@ -218,7 +220,7 @@ class Item extends Component {
 								</View>
 								 <View style={styles.playBtnOut}> 
 									<TouchableHighlight onPress={() => {
-						           		TTS.speak(name)
+						           			TTS.speak(name) 
 						      			 }}>
 								       <View style={styles.playBtn}> 
 								       		<Image source={require('../assets/speak.png')} style={styles.speakIco} />
