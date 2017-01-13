@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 18:58:23
+* @Last Modified time: 2017-01-13 13:41:30
 */
 
 'use strict';
@@ -19,7 +19,7 @@ import {
   TextInput,
   Alert
 } from 'react-native';
-
+import {VERSION} from "../config"
 import styles from "../style.js"
 import Util from "../util.js"
 const w2 =  Dimensions.get('window').width/2;
@@ -27,22 +27,39 @@ class Submit extends Component {
 	constructor(props) {
 	  super(props);
 	  this.state = {
-	  	load:false,
+	  	load:true,
 	  	imgload:false,
 	  	data:null,
+	  	msgCon:"",
 	  	name:"反馈建议",
 	  	msg:"加载中"
 	  };
+	  this.onPressLearnMore = this.onPressLearnMore.bind(this);
 	}
 	onPressLearnMore(){
-		Alert.alert(
+		let navigator = this.props.navigator;
+		let json ={nick:"android",msgcon:""};
+		json["msgcon"] =  this.state.msgCon;
+		let _this = this;
+		if (!this.state.load) {
+			return;
+		}
+		_this.setState({
+			load:false
+		})
+		Util.fetchData(json,"http://api.ibeeger.com/feedback").then(function (data) {
+			_this.setState({
+				load:true
+			})
+			Alert.alert(
             '提示信息',
-            "提交成功",
+            data["data"]["msg"] || "提交成功",
             [
-              {text: '取消', onPress: () => console.log('Cancel Pressed!')},
-              {text: '确定', onPress: () => console.log("success")}
+              {text: '确定', onPress: () => navigator.pop()}
             ]
           );
+		})
+		
 	}
   
 	render(){
@@ -69,23 +86,21 @@ class Submit extends Component {
 					<View style={styles.container}>
 							<ScrollView style={styles.scrollMain}>
 								<View style={styles.textView}>
-								<TextInput style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
+								<TextInput ref="msgCon" onChangeText={(msgCon) => this.setState({msgCon})} style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
 									 
 								</TextInput>
 								</View>
-								<View style={styles.btn}>
-								<Button
-								  onPress={this.onPressLearnMore}
-								  title="提 交"
-								  color="#841584"
-								  
-								  accessibilityLabel="提交反馈信息"
-								/>
+								<View style={styles.submitBtn}>
+								<TouchableHighlight onPress={this.onPressLearnMore}>
+							       <View style={styles.submitButton}> 
+							      	 <Text style={styles.submitButtonText}>提交</Text>
+							       </View>
+					      		 </TouchableHighlight>
 								</View>
 							</ScrollView>
 							<View style={styles.viewVersion}>
 							<Text style={styles.versionfont}>QQ:80301983</Text>
-							<Text style={styles.versionfont}>Version:1.0.0</Text>
+							<Text style={styles.versionfont}>Version:{VERSION}</Text>
 							</View>
 						</View>
 				</View>

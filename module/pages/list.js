@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 18:27:57
+* @Last Modified time: 2017-01-13 11:09:55
 */
 
 'use strict';
@@ -33,7 +33,8 @@ class List extends Component {
         _this.setState({
           load:true,
           num:data.data.length,
-          dataSource:ds.cloneWithRows(data.data)
+          dataSource:ds.cloneWithRows(data.data),
+          arr:data.data
         })
     })
     this.renderRow = this.renderRow.bind(this);
@@ -46,12 +47,12 @@ class List extends Component {
     let cur = (rowID*1+1);
     let type = this.props.type;
     let _this = this;
+    let arr = _this.state.arr;
     return (
       <View style={styles.itempic}>
-     
           <View  style={styles.row}>
            <TouchableHighlight onPress={() => {
-             _this.props.navigator.push({id:"item",index:0,params:{_id:rowData._id,type:type}})
+             _this.props.navigator.push({id:"item",index:0,params:{_id:rowData._id,type:type,arr:arr,cur:rowID}})
           }}>
             <View style={styles.ImgView}>
                   <Image source={{uri:url}}  style={styles.Img} />
@@ -71,7 +72,7 @@ class List extends Component {
           <View style={styles.listMain}>
             <ListView  contentContainerStyle={styles.list}
                   initialListSize={8}
-                  pageSize={1}
+                  pageSize={6}
                   onEndReachedThreshold={10}
                   dataSource={this.state.dataSource}
                   renderRow={this.renderRow}

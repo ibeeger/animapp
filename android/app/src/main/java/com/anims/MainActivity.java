@@ -1,6 +1,7 @@
 package com.anims;
 
 import com.facebook.react.ReactActivity;
+import net.no_mad.tts.TextToSpeechPackage;
 
 public class MainActivity extends ReactActivity {
 

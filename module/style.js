@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-07 19:27:57
+ * @Last Modified time: 2017-01-13 13:45:32
  */
 
 'use strict';
@@ -182,7 +182,32 @@ const styles = StyleSheet.create({
 		paddingTop:20,
 	},
 	pinyinText:{
-		fontSize:40,
+		fontSize:36,
+	},
+	playBtnOut:{
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+		width:40,
+		height:40,
+		position:"absolute",
+		right:7,
+		top:7
+	},
+	playBtn:{
+		width:40,
+		height:40,
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+
+	},
+	playText:{
+		fontSize:25,
+		color:"#c00"
+	},
+	nameText:{
+		fontSize:50
 	},
 	Img: {
 		resizeMode: Image.resizeMode.cover,
@@ -202,9 +227,28 @@ const styles = StyleSheet.create({
 		alignItems:"center",
 		marginBottom:15,
 	},
-	btn:{
+	submitBtn:{
 		marginLeft:10,
 		marginRight:10,
+		height:60,
+		flexDirection:"column",
+		justifyContent:"center"
+	},
+	submitButton:{
+		height:60,
+		width:w,
+		justifyContent:"center",
+		alignItems:"center",
+		backgroundColor:"#fc5d57"
+	},
+	submitButtonText:{
+		fontSize:18,
+		color:"#fff"
+	},
+	speakIco:{
+		width:30,
+		height:30,
+		resizeMode: Image.resizeMode.contain
 	},
 	textinput:{
 		height:300,
@@ -221,6 +265,37 @@ const styles = StyleSheet.create({
 	},
 	viewVersion:{
 		paddingBottom:10
+	},
+	prevNextView:{
+		flexDirection: 'row',
+		justifyContent:"flex-end",
+		alignItems:"flex-end",
+		width:w,
+		flex:1
+	},
+	prevView:{
+		flex:1,
+		height:50,
+		marginRight:1,
+		width:w2
+	},
+	nextView:{
+		flex:1,
+		height:50,
+		marginLeft:1,
+		width:w2
+	},
+	pnBtn:{
+		height:50,
+		width:w2,
+		backgroundColor:"#fc5d57",
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center"
+	},
+	btnText:{
+		color:"#fff",
+		fontSize:18
 	}
 })
 
