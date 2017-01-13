@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-12 11:45:40
+* @Last Modified time: 2017-01-13 13:41:30
 */
 
 'use strict';
@@ -27,7 +27,7 @@ class Submit extends Component {
 	constructor(props) {
 	  super(props);
 	  this.state = {
-	  	load:false,
+	  	load:true,
 	  	imgload:false,
 	  	data:null,
 	  	msgCon:"",
@@ -40,12 +40,21 @@ class Submit extends Component {
 		let navigator = this.props.navigator;
 		let json ={nick:"android",msgcon:""};
 		json["msgcon"] =  this.state.msgCon;
+		let _this = this;
+		if (!this.state.load) {
+			return;
+		}
+		_this.setState({
+			load:false
+		})
 		Util.fetchData(json,"http://api.ibeeger.com/feedback").then(function (data) {
+			_this.setState({
+				load:true
+			})
 			Alert.alert(
             '提示信息',
             data["data"]["msg"] || "提交成功",
             [
-              {text: '取消', onPress: () => console.log('Cancel Pressed!')},
               {text: '确定', onPress: () => navigator.pop()}
             ]
           );
@@ -81,13 +90,12 @@ class Submit extends Component {
 									 
 								</TextInput>
 								</View>
-								<View style={styles.btn}>
-								<Button
-								  onPress={this.onPressLearnMore}
-								  title="提 交"
-								  color="#841584"
-								  accessibilityLabel="提交反馈信息"
-								/>
+								<View style={styles.submitBtn}>
+								<TouchableHighlight onPress={this.onPressLearnMore}>
+							       <View style={styles.submitButton}> 
+							      	 <Text style={styles.submitButtonText}>提交</Text>
+							       </View>
+					      		 </TouchableHighlight>
 								</View>
 							</ScrollView>
 							<View style={styles.viewVersion}>
