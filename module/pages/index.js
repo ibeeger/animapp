@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 15:18:20
+* @Last Modified time: 2017-01-13 15:42:46
 */
 
 'use strict';
@@ -45,7 +45,7 @@ class Index extends Component {
         //判断新版本
         if (data["upgrade"]) {
             let msg = data["upgrademsg"] || "有新版本升级";
-            let upgradeurl = data["url"] || "http://www.ibeeger.com";
+            let upgradeurl = data["upgradeurl"] || "http://www.ibeeger.com";
           Alert.alert(
             '更新提示',
             msg,
