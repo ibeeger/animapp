@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 13:41:30
+* @Last Modified time: 2017-01-14 16:29:53
 */
 
 'use strict';
@@ -22,6 +22,9 @@ import {
 import {VERSION} from "../config"
 import styles from "../style.js"
 import Util from "../util.js"
+
+import Device from "react-native-device-info"
+
 const w2 =  Dimensions.get('window').width/2;
 class Submit extends Component {
 	constructor(props) {
@@ -38,7 +41,7 @@ class Submit extends Component {
 	}
 	onPressLearnMore(){
 		let navigator = this.props.navigator;
-		let json ={nick:"android",msgcon:""};
+		let json ={nick:"android",msgcon:"",deviceName:Device.getDeviceName(),ua:Device.getUserAgent()};
 		json["msgcon"] =  this.state.msgCon;
 		let _this = this;
 		if (!this.state.load) {
