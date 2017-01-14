@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 20:54:42
+* @Last Modified time: 2017-01-14 10:04:48
 */
 
 'use strict';
@@ -33,8 +33,6 @@ class Item extends Component {
 	  	msg:"加载中",
 	  };
 
-   	 
-
 	   let _this = this;
 	   
       Util.fetchData({animid:props._id,typeid:props.type}).then(function(data) {
@@ -43,7 +41,7 @@ class Item extends Component {
       		  _this.setState({
 		          load:true,
 		    	  arr:props.arr,
-		    	  title:props.cur+"/"+props.arr.length,
+		    	  title:(props.cur*1+1)+"/"+props.arr.length,
 		          ename:_data.ename,
 		          animtype:props.type,
 		          pinyin:_data.pinyin,
@@ -90,7 +88,7 @@ class Item extends Component {
 				let _data = data.data[0];
 				_this.setState({
 					load: true,
-					title:prev+"/"+_this.state.arr.length,
+					title:(prev*1+1)+"/"+_this.state.arr.length,
 					ename: _data.ename,
 					pinyin: _data.pinyin,
 					name: _data.name,
@@ -131,7 +129,7 @@ class Item extends Component {
 				let _data = data.data[0];
 				_this.setState({
 					load: true,
-					title:next+"/"+_this.state.arr.length,
+					title:(next*1+1)+"/"+_this.state.arr.length,
 					ename: _data.ename,
 					pinyin: _data.pinyin,
 					name: _data.name,

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 15:47:46
+* @Last Modified time: 2017-01-14 10:40:05
 */
 
 'use strict';
@@ -20,7 +20,6 @@ import {
 } from 'react-native';
 
 import {VERSION} from "../config"
-
 import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
@@ -40,6 +39,7 @@ class Index extends Component {
 	}
   
   componentDidMount(){
+      
       let _this = this;
       Util.fetchData({index:true}).then(function(data) {
         //判断新版本
@@ -107,7 +107,7 @@ class Index extends Component {
      
       if (list.length>0) {
           let arr = list.map(function(item,i){
-              let link,type,url,name = item["name"] || "动物世界";
+              let link,type,url,name = item["name"] || "精选文章";
               i++;
               if (item.type) {
                 url = "http://oss.files.ibeeger.com/anims/"+item.type+"/"+item.img;

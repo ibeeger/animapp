@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-07 15:53:58
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-07 17:47:21
+* @Last Modified time: 2017-01-14 10:25:13
 */
 
 'use strict';
@@ -27,7 +27,7 @@ export default  class WebPage extends Component{
 	  super(props);
 	  this.state = {
 	  	 url:props.link,
-	  	 name:props.name || "动物世界",
+	  	 name:props.name || "精选文章推荐",
 	  	 scalesPageToFit:true
 	  };
 	  console.log(this.state.url)
@@ -60,7 +60,7 @@ export default  class WebPage extends Component{
 			          source={{uri:this.state.url}}
 			          javaScriptEnabled={true}
 			          domStorageEnabled={true}
-			          startInLoadingState={true}
+			          startInLoadingState={false}
 			          scalesPageToFit={this.state.scalesPageToFit}
 			          /></View>
         </View>

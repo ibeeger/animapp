@@ -13,8 +13,7 @@ import {
   View,
   Navigator,
   BackAndroid,
-  Platform,
-  NativeModules
+  Platform
 } from 'react-native';
 
 
