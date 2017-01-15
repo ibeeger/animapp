@@ -58,6 +58,7 @@ class Item extends Component {
         
     })
 
+      TTS.resume();
 
       this.loadImg = this.loadImg.bind(this);
       this.playName = this.playName.bind(this);
@@ -175,6 +176,11 @@ class Item extends Component {
 		    	TTS.speak({text: name,
 				    voice: 'zh-CN',
 					rate: 0.5})
+		    }else{
+		    	TTS.stop();
+		    	TTS.speak({text: name,
+				    voice: 'zh-CN',
+					rate: 0.5})
 		    }
 		  });
 		
@@ -183,9 +189,7 @@ class Item extends Component {
 	render(){
 		let navigator = this.props.navigator;
 		let {img,name,ename,pinyin,desc,title} = this.state;
-		if (!this.state.load) {
-			return this.renderLoading();
-		}else{
+		 
 			let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/"+img;
 			let show = 1;
 			let imgItem = null;
@@ -258,7 +262,6 @@ class Item extends Component {
 					</View>
 				</View>
 			)
-		}
 		
 	}
 

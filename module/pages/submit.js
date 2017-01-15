@@ -20,12 +20,13 @@ import {
   Platform,
   Alert
 } from 'react-native';
-import {VERSION} from "../config"
+
 import styles from "../style.js"
 import Util from "../util.js"
 
 import Device from "react-native-device-info"
 
+const VERSION = Device.getVersion();
 const w2 =  Dimensions.get('window').width/2;
 class Submit extends Component {
 	constructor(props) {
@@ -38,6 +39,7 @@ class Submit extends Component {
 	  	name:"反馈建议",
 	  	msg:"加载中"
 	  };
+
 	  this.onPressLearnMore = this.onPressLearnMore.bind(this);
 	}
 	onPressLearnMore(){
@@ -90,7 +92,7 @@ class Submit extends Component {
 					<View style={styles.container}>
 							<ScrollView style={styles.scrollMain}>
 								<View style={styles.textView}>
-								<TextInput ref="msgCon" onChangeText={(msgCon) => this.setState({msgCon})} style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
+								<TextInput ref="msgCon" blurOnSubmit={true} onChangeText={(msgCon) => this.setState({msgCon})} style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
 									 
 								</TextInput>
 								</View>

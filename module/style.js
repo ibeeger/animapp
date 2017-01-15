@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
 		backgroundColor:"#fff"
 	},
 	header: {
-		height: 60,
+		height: 80,
+		paddingTop:20,
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#18bbf2',
@@ -219,25 +220,28 @@ const styles = StyleSheet.create({
 		 width:w,
 	},
 	textView:{
-		height:300,
+		height:200,
 		flex:1,
 		marginTop:15,
 		backgroundColor:"#fff",
 		width:w,
+		paddingLeft:10,
+		paddingRight:10,
 		justifyContent:"center",
 		alignItems:"center",
-		marginBottom:15,
+		alignSelf:"center",
+		marginBottom:15
 	},
 	submitBtn:{
-		marginLeft:10,
-		marginRight:10,
+		paddingLeft:10,
+		paddingRight:10,
+		width:w,
 		height:60,
 		flexDirection:"column",
 		justifyContent:"center"
 	},
 	submitButton:{
 		height:60,
-		width:w,
 		justifyContent:"center",
 		alignItems:"center",
 		backgroundColor:"#fc5d57"
@@ -252,8 +256,8 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.contain
 	},
 	textinput:{
-		height:300,
-		width:(w*1-20),
+		height:200,
+		flex:1,
 		textAlignVertical:"top",
 		borderWidth:0.5,
 		borderRadius:5,
