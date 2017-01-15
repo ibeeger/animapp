@@ -100,18 +100,24 @@ const styles = StyleSheet.create({
 		marginBottom:0
 	},
 	itempic: {
-		width: (w2-10),
+		width: (w2*1-16),
 		height: 100,
 		marginTop:10,
+		marginBottom:0,
 		marginLeft:5,
-		marginRight:5,
-		marginBottom:0
+		marginRight:5
+	},
+	ImgView: {
+		justifyContent:"center",
+		height: 100,
+		width:(w2*1-20),
+		alignSelf: "center"
 	},
 	row: {
 		height: 100,
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius:5
+		borderRadius:5,
 	},
 	swiperMain: {
 		height: 200,
@@ -155,11 +161,7 @@ const styles = StyleSheet.create({
 		width:w,
 		alignSelf:"center"
 	},
-	ImgView: {
-		width:w2,
-		height: 100,
-		alignSelf: "center",
-	},
+	
 	IndexImg:{
 		width:w,
 		height:200,
@@ -213,7 +215,12 @@ const styles = StyleSheet.create({
 	},
 	Img: {
 		resizeMode: Image.resizeMode.cover,
-		flex: 1
+		flex: 1,
+		borderRadius:5
+	},
+	BigImg: {
+		resizeMode: Image.resizeMode.cover,
+		flex: 1,
 	},
 	scrollMain:{
 		 flex:1,

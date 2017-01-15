@@ -39,7 +39,6 @@ class Index extends Component {
 	}
   
   componentDidMount(){
-      
       let _this = this;
       Util.fetchData({index:true}).then(function(data) {
         //判断新版本
@@ -67,7 +66,7 @@ class Index extends Component {
     let _this = this;
     return (
       <View style={styles.item}>
-      <TouchableHighlight onPress={() => {
+      <TouchableHighlight underlayColor="rgba(255,255,255,.1)" onPress={() => {
            _this.props.navigator.push({id:"list",index:0,params:{type:rowData.type,title:rowData.name}})
         }}>
           <View  style={[styles.row,{backgroundColor:colors[rowID]}]}>
@@ -116,7 +115,7 @@ class Index extends Component {
               };
               if (item.link) {
                 return (<View style={styles.swiperItem} key={i}>
-                          <TouchableHighlight onPress={() => {
+                          <TouchableHighlight underlayColor="rgba(255,255,255,.1)" onPress={() => {
                            _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name}})
                         }}>
                             <View style={styles.swiperItem}>

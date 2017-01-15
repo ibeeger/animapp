@@ -18,7 +18,7 @@ import {
 const INITIAL_ROUTE = {
   id:"home",
   index:0,
-  params:{title:"会通教育"}
+  params:{title:"动物世界"}
 };
 
 export default class Anims extends Component {
