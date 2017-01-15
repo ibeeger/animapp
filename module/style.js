@@ -212,6 +212,11 @@ const styles = StyleSheet.create({
 	},
 	Img: {
 		resizeMode: Image.resizeMode.cover,
+		flex: 1,
+		borderRadius:5
+	},
+	BigImg: {
+		resizeMode: Image.resizeMode.cover,
 		flex: 1
 	},
 	scrollMain:{

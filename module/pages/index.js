@@ -67,7 +67,7 @@ class Index extends Component {
     let _this = this;
     return (
       <View style={styles.item}>
-      <TouchableHighlight onPress={() => {
+      <TouchableHighlight underlayColor="rgba(255,255,255,.1)" onPress={() => {
            _this.props.navigator.push({id:"list",index:0,params:{type:rowData.type,title:rowData.name}})
         }}>
           <View  style={[styles.row,{backgroundColor:colors[rowID]}]}>

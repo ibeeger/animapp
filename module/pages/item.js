@@ -208,7 +208,7 @@ class Item extends Component {
 						<View style={styles.picshow}>
 								<View style={styles.picshow}>
 									  {imgItem}
-									  <Image source={{uri:url}} onLoad={this.loadImg}  style={[styles.Img,{opacity:show}]} />
+									  <Image source={{uri:url}} onLoad={this.loadImg}  style={[styles.BigImg,{opacity:show}]} />
 								</View>
 						</View>
 						<View style={styles.desc}>

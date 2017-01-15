@@ -51,7 +51,7 @@ class List extends Component {
     return (
       <View style={styles.itempic}>
           <View  style={styles.row}>
-           <TouchableHighlight onPress={() => {
+           <TouchableHighlight underlayColor="rgba(255,255,255,.1)" onPress={() => {
              _this.props.navigator.push({id:"item",index:0,params:{_id:rowData._id,type:type,arr:arr,cur:rowID}})
           }}>
             <View style={styles.ImgView}>
