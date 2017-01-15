@@ -17,6 +17,7 @@ import {
   ScrollView,
   Button,
   TextInput,
+  Platform,
   Alert
 } from 'react-native';
 import {VERSION} from "../config"
@@ -41,7 +42,7 @@ class Submit extends Component {
 	}
 	onPressLearnMore(){
 		let navigator = this.props.navigator;
-		let json ={nick:"android",msgcon:"",deviceName:Device.getDeviceName(),ua:Device.getUserAgent()};
+		let json ={nick:Platform.OS,msgcon:"",deviceName:Device.getDeviceName(),ua:Device.getUserAgent()};
 		json["msgcon"] =  this.state.msgCon;
 		let _this = this;
 		if (!this.state.load) {

@@ -14,11 +14,10 @@ import {
   Image,
   Dimensions,
   TouchableHighlight,
-  ScrollView,
-  ToastAndroid
+  ScrollView
 } from 'react-native';
 
-import TTS from "react-native-tts"
+import TTS from "react-native-speech"
 
 import styles from "../style.js"
 import Util from "../util.js"
@@ -58,7 +57,10 @@ class Item extends Component {
       	}
         
     })
+
+
       this.loadImg = this.loadImg.bind(this);
+      this.playName = this.playName.bind(this);
       this.changeAnimPrev = this.changeAnimPrev.bind(this);
       this.changeAnimNext = this.changeAnimNext.bind(this);
 	}
@@ -70,7 +72,6 @@ class Item extends Component {
 		let prev = this.state.prev;
 		let next = this.state.next;
 		if (prev ==0) {
-			ToastAndroid.show('已经是第一张了', ToastAndroid.SHORT)
 			return;
 		}
 
@@ -112,7 +113,6 @@ class Item extends Component {
 		let next = this.state.next;
 		let prev = this.state.prev;
 		if (next ==this.state.arr.length) {
-			ToastAndroid.show('已经是最后一张了', ToastAndroid.SHORT)
 			return;
 		}
 		this.setState({
@@ -166,6 +166,20 @@ class Item extends Component {
           )
 	}
 
+
+	playName(){
+		let name = this.state.name;
+		TTS.isSpeaking()
+		  .then(speaking => {
+		    if (!speaking) {
+		    	TTS.speak({text: name,
+				    voice: 'zh-CN',
+					rate: 0.5})
+		    }
+		  });
+		
+	}
+
 	render(){
 		let navigator = this.props.navigator;
 		let {img,name,ename,pinyin,desc,title} = this.state;
@@ -217,9 +231,7 @@ class Item extends Component {
 									 <Text style={styles.nameText}>{name}</Text>
 								</View>
 								 <View style={styles.playBtnOut}> 
-									<TouchableHighlight onPress={() => {
-						           			TTS.speak(name) 
-						      			 }}>
+									<TouchableHighlight onPress={this.playName}>
 								       <View style={styles.playBtn}> 
 								       		<Image source={require('../assets/speak.png')} style={styles.speakIco} />
 								       </View>
