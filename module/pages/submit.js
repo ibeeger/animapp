@@ -44,7 +44,7 @@ class Submit extends Component {
 	}
 	onPressLearnMore(){
 		let navigator = this.props.navigator;
-		let json ={nick:Platform.OS,msgcon:"",deviceName:Device.getDeviceName(),ua:Device.getUserAgent()};
+		let json ={nick:"mobile",msgcon:"",deviceName:Device.getDeviceName(),ua:Device.getUserAgent()};
 		json["msgcon"] =  this.state.msgCon;
 		let _this = this;
 		if (!this.state.load) {
