@@ -8,10 +8,14 @@
 'use strict';
 
 import {URL,VERSION} from "./config"
+import {
+	Platform
+} from "react-native"
+
 import Device from "react-native-device-info"
 class Util {
 	static fetchData(postdata) {
-		postdata = Object.assign({},postdata,{v:Device.getVersion()});
+		postdata = Object.assign({},postdata,{v:Device.getVersion(),os:Platform.OS});
 		let url = URL;
 		if (arguments.length==2) {
 			url = arguments[1];
