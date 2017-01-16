@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-14 16:29:53
+* @Last Modified time: 2017-01-16 18:39:42
 */
 
 'use strict';
@@ -42,6 +42,16 @@ class Submit extends Component {
 	onPressLearnMore(){
 		let navigator = this.props.navigator;
 		let json ={nick:"mobile",msgcon:"",deviceName:Device.getDeviceName(),ua:Device.getUserAgent()};
+		if (!this.state.msgCon) {
+			Alert.alert(
+            '提示信息',
+	            "提交内容不能为空",
+	            [
+	              {text: '确定', onPress: () => {console.log("kong")}}
+	            ]
+	          );
+			return;
+		}
 		json["msgcon"] =  this.state.msgCon;
 		let _this = this;
 		if (!this.state.load) {
@@ -53,7 +63,7 @@ class Submit extends Component {
 		Util.fetchData(json,"http://api.ibeeger.com/feedback").then(function (data) {
 			_this.setState({
 				load:true
-			})
+			});
 			Alert.alert(
             '提示信息',
             data["data"]["msg"] || "提交成功",

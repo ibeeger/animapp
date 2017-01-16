@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 11:09:55
+* @Last Modified time: 2017-01-16 11:36:29
 */
 
 'use strict';
@@ -40,8 +40,6 @@ class List extends Component {
     this.renderRow = this.renderRow.bind(this);
 	}
  
-
-
   renderRow(rowData: object, sectionID: number, rowID: number){
     let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/small/"+rowData.img;
     let cur = (rowID*1+1);

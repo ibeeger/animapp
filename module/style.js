@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-13 20:45:04
+ * @Last Modified time: 2017-01-16 16:50:54
  */
 
 'use strict';
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
 		width:w2,
 		height: 100,
 		alignSelf: "center",
+		borderRadius:5,
 	},
 	IndexImg:{
 		width:w,
@@ -192,7 +193,8 @@ const styles = StyleSheet.create({
 		height:40,
 		position:"absolute",
 		right:7,
-		top:7
+		top:7,
+		borderRadius:20,
 	},
 	playBtn:{
 		width:40,
@@ -200,12 +202,12 @@ const styles = StyleSheet.create({
 		alignSelf:"center",
 		justifyContent:"center",
 		alignItems:"center",
-		backgroundColor:"rgba(255,255,255,0.5)"
-
+		backgroundColor:"#fc5d57",
+		borderRadius:20
 	},
-	playText:{
-		fontSize:25,
-		color:"#c00"
+	PlayText:{
+		fontSize:24,
+		color:"#fff",
 	},
 	nameText:{
 		fontSize:50
@@ -250,11 +252,6 @@ const styles = StyleSheet.create({
 	submitButtonText:{
 		fontSize:18,
 		color:"#fff"
-	},
-	speakIco:{
-		width:30,
-		height:30,
-		resizeMode: Image.resizeMode.contain
 	},
 	textinput:{
 		height:300,

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-14 10:04:48
+* @Last Modified time: 2017-01-16 11:09:55
 */
 
 'use strict';
@@ -217,11 +217,11 @@ class Item extends Component {
 									 <Text style={styles.nameText}>{name}</Text>
 								</View>
 								 <View style={styles.playBtnOut}> 
-									<TouchableHighlight onPress={() => {
+									<TouchableHighlight  underlayColor="rgba(255,255,255,.1)" onPress={() => {
 						           			TTS.speak(name) 
 						      			 }}>
 								       <View style={styles.playBtn}> 
-								       		<Image source={require('../assets/speak.png')} style={styles.speakIco} />
+								       		<Text style={styles.PlayText}>音</Text>
 								       </View>
 						      		 </TouchableHighlight>
 					      		  </View>

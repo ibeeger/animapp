@@ -836,7 +836,6 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anims.app/Anims";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -853,7 +852,6 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anims.app/Anims";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Release;

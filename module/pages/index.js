@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-14 10:40:05
+* @Last Modified time: 2017-01-16 14:38:40
 */
 
 'use strict';
@@ -39,7 +39,6 @@ class Index extends Component {
 	}
   
   componentDidMount(){
-      
       let _this = this;
       Util.fetchData({index:true}).then(function(data) {
         //判断新版本
@@ -79,7 +78,7 @@ class Index extends Component {
       </View>
     );
   }
-
+  
   renderList(){
         return(
           <View style={styles.listMain}>
