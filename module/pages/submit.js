@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-16 18:41:43
+* @Last Modified time: 2017-01-16 18:58:30
 */
 
 'use strict';
@@ -99,7 +99,7 @@ class Submit extends Component {
 					<View style={styles.container}>
 							<ScrollView style={styles.scrollMain}>
 								<View style={styles.textView}>
-								<TextInput ref="msgCon" onChangeText={(msgCon) => this.setState({msgCon})} style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
+								<TextInput ref="msgCon" blurOnSubmit={true}  onChangeText={(msgCon) => this.setState({msgCon})} style={styles.textinput} underlineColorAndroid="transparent" multiline={true}>
 									 
 								</TextInput>
 								</View>

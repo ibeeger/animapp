@@ -66,3 +66,7 @@
 -dontwarn okio.**
 
 
+ -ignorewarnings
+
+
+
