@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-16 18:39:42
+* @Last Modified time: 2017-01-16 18:41:43
 */
 
 'use strict';
@@ -112,7 +112,7 @@ class Submit extends Component {
 								</View>
 							</ScrollView>
 							<View style={styles.viewVersion}>
-							<Text style={styles.versionfont}>QQ:80301983</Text>
+							<Text style={styles.versionfont}>微信:web0310</Text>
 							<Text style={styles.versionfont}>Version:{VERSION}</Text>
 							</View>
 						</View>
