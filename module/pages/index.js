@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 15:23:21
+* @Last Modified time: 2017-01-17 19:22:11
 */
 
 'use strict';
@@ -16,7 +16,10 @@ import {
   View,
   ListView,
   Linking,
-  Alert
+  Alert,
+  Animated,
+  NetInfo,
+  ToastAndroid
 } from 'react-native';
 
 import styles from "../style"
@@ -30,16 +33,22 @@ class Index extends Component {
 	  super(props);
 	  this.state = {
        load:false,
+       fadeAnim:new Animated.Value(1),
        dataSource: ds.cloneWithRows([{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."}]),
        swiperData:[]
     };
     this.renderRow = this.renderRow.bind(this);
     this.renderSwiper = this.renderSwiper.bind(this);
     this.fetchData = this.fetchData.bind(this);
+    this.renderAd = this.renderAd.bind(this);
 	}
   
   componentDidMount(){
-    this.fetchData();
+         Animated.timing(          // Uses easing functions
+           this.state.fadeAnim,    // The value to drive
+           {toValue: 0,delay:2000},           // Configuration
+         ).start(this.fetchData);
+         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.LONG)});
   }
 
   fetchData(){
@@ -144,11 +153,23 @@ class Index extends Component {
       }
       
   }
+
+  renderAd(){
+  
+          return (<Animated.View style={[styles.adBox,{opacity:this.state.fadeAnim}]}>
+          <Image source={require('../assets/splash.png')} style={styles.adImage} />
+        </Animated.View>)
+       
+    
+  }
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();
+    let ad = this.renderAd();
     if (this.state.load) {
+        ad=null;
         swiper = this.renderSwiper();
+       
     }
 		return(
     <View style={styles.main}>
@@ -158,6 +179,9 @@ class Index extends Component {
         <View style={styles.listMain}>
           {main}
         </View>
+  
+        {ad}
+
       </View>
 			)
 	}

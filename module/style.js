@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-16 16:50:54
+ * @Last Modified time: 2017-01-17 17:25:46
  */
 
 'use strict';
@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 const w =  Dimensions.get('window').width;
+const h =  Dimensions.get('window').height;
 const w2 =  Dimensions.get('window').width/2;
 const w4 =  Dimensions.get('window').width/4;
 
@@ -21,6 +22,22 @@ const styles = StyleSheet.create({
 	main: {
 		flex: 1,
 		backgroundColor:"#fff"
+	},
+	adBox:{
+		flex:1,
+		width:w,
+		height:h,
+		position:"absolute",
+		left:0,
+		top:0,
+		zIndex:10,
+		backgroundColor:"#fff"
+	},
+	adImage:{
+		flex:1,
+		width:w,
+		height:h,
+		resizeMode: Image.resizeMode.cover
 	},
 	header: {
 		height: 60,
