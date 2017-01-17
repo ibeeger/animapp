@@ -57,7 +57,7 @@ export default class Anims extends Component {
   configureScene(route, routeStack){
     return Navigator.SceneConfigs.PushFromRight
   }
-    renderScene (route, navigator) {
+  renderScene (route, navigator) {
       this.navigator = navigator;
       return  RT.getRoutePage(route,navigator);
   }

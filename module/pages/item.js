@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-16 11:09:55
+* @Last Modified time: 2017-01-17 15:42:09
 */
 
 'use strict';
@@ -22,6 +22,8 @@ import TTS from "react-native-tts"
 
 import styles from "../style.js"
 import Util from "../util.js"
+import Header from "../components/header"
+
 const w2 =  Dimensions.get('window').width/2;
 class Item extends Component {
 	constructor(props) {
@@ -182,28 +184,7 @@ class Item extends Component {
 			let fed = "反馈";
 			return(
 				<View style={styles.main}>
-					<View style={styles.header}>
-						<View style={styles.titleBtn}>  
-						<TouchableHighlight onPress={() => {
-					           navigator.pop()
-					       }}>
-						       <View style={styles.titleBtn}> 
-						       		<Text>返回</Text>
-						       </View>
-					       </TouchableHighlight>
-       					</View>
-						<View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{title}</Text></View>
-
-						<View style={styles.titleBtn}>
-							<TouchableHighlight onPress={() => {
-					          		 navigator.push({id:'submit',index:0,params:{}})
-					      		 }}>
-							       <View style={styles.titleBtn}> 
-							      	 <Text>{fed}</Text>
-							       </View>
-					       </TouchableHighlight>
-						</View>
-					</View>
+					<Header navigator={navigator} title={title} hasfeedback={true} />
 					<View style={styles.container}>
 						<View style={styles.picshow}>
 								<View style={styles.picshow}>

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-16 14:38:40
+* @Last Modified time: 2017-01-17 15:23:21
 */
 
 'use strict';
@@ -19,7 +19,6 @@ import {
   Alert
 } from 'react-native';
 
-import {VERSION} from "../config"
 import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
@@ -36,10 +35,15 @@ class Index extends Component {
     };
     this.renderRow = this.renderRow.bind(this);
     this.renderSwiper = this.renderSwiper.bind(this);
+    this.fetchData = this.fetchData.bind(this);
 	}
   
   componentDidMount(){
-      let _this = this;
+    this.fetchData();
+  }
+
+  fetchData(){
+    let _this = this;
       Util.fetchData({index:true}).then(function(data) {
         //判断新版本
         if (data["upgrade"]) {

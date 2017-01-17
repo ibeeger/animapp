@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-16 18:58:30
+* @Last Modified time: 2017-01-17 16:01:58
 */
 
 'use strict';
@@ -22,7 +22,7 @@ import {
 import {VERSION} from "../config"
 import styles from "../style.js"
 import Util from "../util.js"
-
+import Header from "../components/header"
 import Device from "react-native-device-info"
 
 const w2 =  Dimensions.get('window').width/2;
@@ -81,21 +81,7 @@ class Submit extends Component {
 			 
 			return(
 				<View style={styles.main}>
-					<View style={styles.header}>
-						 <View style={styles.titleBtn}>  
-						   <TouchableHighlight onPress={() => {
-					           navigator.pop()
-					       }}>
-					       <View style={styles.titleBtn}> 
-					       		<Text>返回</Text>
-					       </View>
-					       </TouchableHighlight>
-       				</View>
-						<View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{name}</Text></View>
-						<View style={styles.titleBtn}>
-							
-						</View>
-					</View>
+					<Header navigator={navigator} title={name} hasfeedback={false} />
 					<View style={styles.container}>
 							<ScrollView style={styles.scrollMain}>
 								<View style={styles.textView}>

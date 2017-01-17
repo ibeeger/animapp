@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-16 11:36:29
+* @Last Modified time: 2017-01-17 15:42:26
 */
 
 'use strict';
@@ -19,6 +19,9 @@ import {
 import styles from "../style"
 import Util from "../util.js"
 
+import Header from "../components/header"
+
+
 class List extends Component {
 	constructor(props) {
 	  super(props);
@@ -26,8 +29,12 @@ class List extends Component {
       load:false,
        dataSource: null
     };
-     let _this = this;
-
+    
+    this.renderRow = this.renderRow.bind(this);
+	}
+ 
+   componentDidMount(){
+      let _this = this;
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       Util.fetchData({type:this.props.type}).then(function(data) {
         _this.setState({
@@ -37,9 +44,9 @@ class List extends Component {
           arr:data.data
         })
     })
-    this.renderRow = this.renderRow.bind(this);
-	}
- 
+   }
+
+
   renderRow(rowData: object, sectionID: number, rowID: number){
     let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/small/"+rowData.img;
     let cur = (rowID*1+1);
@@ -89,28 +96,15 @@ class List extends Component {
 
 	render(){
     let main = this.renderLoad();
+    let title = this.props.title +" "+this.state.num;
     let navigator = this.props.navigator;
     if (this.state.load) {
       main = this.renderList();
     }
 		return(
     <View style={styles.main}>
-  		  <View style={styles.header}>
-            <View style={styles.titleBtn}>  
-            <TouchableHighlight onPress={() => {
-                     navigator.pop()
-                 }}>
-                 <View style={styles.titleBtn}>
-                    <Text>返回</Text>
-                  </View>
-                 </TouchableHighlight>
-              </View>
-            <View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{this.props.title} {this.state.num}</Text></View>
-            <View style={styles.titleBtn}></View>
-          </View>
-
+  		  <Header  navigator={navigator} hasfeedback={false} title={title} />
         {main}
-
       </View>
 			)
 	}
