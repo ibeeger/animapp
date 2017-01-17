@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 16:07:08
+* @Last Modified time: 2017-01-17 20:01:48
 */
 
 'use strict';
@@ -37,12 +37,14 @@ class List extends Component {
       let _this = this;
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       Util.fetchData({type:this.props.type}).then(function(data) {
-        _this.setState({
-          load:true,
-          num:data.data.length,
-          dataSource:ds.cloneWithRows(data.data),
-          arr:data.data
-        })
+        setTimeout(function(){
+          _this.setState({
+            load:true,
+            num:data.data.length,
+            dataSource:ds.cloneWithRows(data.data),
+            arr:data.data
+          })
+        },600)
     })
    }
 

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 19:40:04
+* @Last Modified time: 2017-01-17 20:04:12
 */
 
 'use strict';
@@ -69,6 +69,7 @@ class Index extends Component {
         }
         _this.setState({
           load:true,
+          splashImage:null,
           dataSource:ds.cloneWithRows(data.data),
           swiperData:data["swiperData"]
         })
@@ -155,9 +156,9 @@ class Index extends Component {
   }
 
   renderAd(){
-  
+           let url = this.state.splashImage || "";
           return (<Animated.View style={[styles.adBox,{opacity:this.state.fadeAnim}]}>
-          <Image source={require('./img/splash.png')} style={styles.adImage} />
+          <Image source={{uri:url}} style={styles.adImage} />
         </Animated.View>)
        
     
