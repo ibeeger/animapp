@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-13 11:09:55
+* @Last Modified time: 2017-01-17 20:11:38
 */
 
 'use strict';
@@ -13,11 +13,15 @@ import {
   TouchableHighlight,
   View,
   Image,
+  Animated,
   ListView
 } from 'react-native';
 
 import styles from "../style"
 import Util from "../util.js"
+
+import Header from "../components/header"
+
 
 class List extends Component {
 	constructor(props) {
@@ -26,20 +30,24 @@ class List extends Component {
       load:false,
        dataSource: null
     };
-     let _this = this;
-
-      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      Util.fetchData({type:this.props.type}).then(function(data) {
-        _this.setState({
-          load:true,
-          num:data.data.length,
-          dataSource:ds.cloneWithRows(data.data),
-          arr:data.data
-        })
-    })
+    
     this.renderRow = this.renderRow.bind(this);
 	}
  
+   componentDidMount(){
+      let _this = this;
+      const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+      Util.fetchData({type:this.props.type}).then(function(data) {
+        setTimeout(function(){
+          _this.setState({
+            load:true,
+            num:data.data.length,
+            dataSource:ds.cloneWithRows(data.data),
+            arr:data.data
+          })
+        },400)
+    })
+   }
 
 
   renderRow(rowData: object, sectionID: number, rowID: number){
@@ -78,38 +86,28 @@ class List extends Component {
       )
   }
 
-  renderLoad(){
-      return(
-            <View style={styles.message}>
+  renderAd(){
+          return (<View style={styles.adBox}>
+          <View style={styles.loadView}>
               <Text style={styles.msgtext}>数据加载中</Text>
-            </View>
-          )
+          </View>
+        </View>)
   }
 
 	render(){
-    let main = this.renderLoad();
+    let main = null;
+    let title = this.props.title +" "+(this.state.num || "");
     let navigator = this.props.navigator;
+    let ad = this.renderAd();
     if (this.state.load) {
+      ad = null;
       main = this.renderList();
     }
 		return(
     <View style={styles.main}>
-  		  <View style={styles.header}>
-            <View style={styles.titleBtn}>  
-            <TouchableHighlight onPress={() => {
-                     navigator.pop()
-                 }}>
-                 <View style={styles.titleBtn}>
-                    <Text>返回</Text>
-                  </View>
-                 </TouchableHighlight>
-              </View>
-            <View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{this.props.title} {this.state.num}</Text></View>
-            <View style={styles.titleBtn}></View>
-          </View>
-
+  		  <Header  navigator={navigator} hasfeedback={false} title={title} />
         {main}
-
+        {ad}
       </View>
 			)
 	}

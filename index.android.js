@@ -55,9 +55,10 @@ export default class Anims extends Component {
    
   };
   configureScene(route, routeStack){
-    return Navigator.SceneConfigs.PushFromRight
+    return Navigator.SceneConfigs.PushFromRight;
+    // return Navigator.SceneConfigs.FadeAndroid;
   }
-    renderScene (route, navigator) {
+  renderScene (route, navigator) {
       this.navigator = navigator;
       return  RT.getRoutePage(route,navigator);
   }

@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-13 20:45:04
+ * @Last Modified time: 2017-01-17 20:38:59
  */
 
 'use strict';
@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 const w =  Dimensions.get('window').width;
+const h =  Dimensions.get('window').height;
 const w2 =  Dimensions.get('window').width/2;
 const w4 =  Dimensions.get('window').width/4;
 
@@ -21,6 +22,32 @@ const styles = StyleSheet.create({
 	main: {
 		flex: 1,
 		backgroundColor:"#fff"
+	},
+	adBox:{
+		flex:1,
+		width:w,
+		height:h,
+		position:"absolute",
+		left:0,
+		top:0,
+		zIndex:10,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor:"rgba(255,255,255,0.1)"
+	},
+	loadView:{
+		width:w2,
+		height:100,
+		justifyContent:"center",
+		alignItems:"center",
+		borderRadius:15,
+		backgroundColor:"rgba(255,255,255,0.8)"
+	},
+	adImage:{
+		flex:1,
+		width:w,
+		height:h,
+		resizeMode: Image.resizeMode.cover
 	},
 	header: {
 		height: 80,
@@ -84,8 +111,8 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	msgtext: {
-		fontSize: 12,
-		color: "#f0f0f0",
+		fontSize: 14,
+		color: "#ccc",
 		alignSelf:"center"
 	},
 
@@ -163,7 +190,12 @@ const styles = StyleSheet.create({
 		width:w,
 		alignSelf:"center"
 	},
-	
+	ImgView: {
+		width:w2,
+		height: 100,
+		alignSelf: "center",
+		borderRadius:5,
+	},
 	IndexImg:{
 		width:w,
 		height:200,
@@ -197,7 +229,8 @@ const styles = StyleSheet.create({
 		height:40,
 		position:"absolute",
 		right:7,
-		top:7
+		top:7,
+		borderRadius:20,
 	},
 	playBtn:{
 		width:40,
@@ -205,12 +238,12 @@ const styles = StyleSheet.create({
 		alignSelf:"center",
 		justifyContent:"center",
 		alignItems:"center",
-		backgroundColor:"rgba(255,255,255,0.5)"
-
+		backgroundColor:"#fc5d57",
+		borderRadius:20
 	},
-	playText:{
-		fontSize:25,
-		color:"#c00"
+	PlayText:{
+		fontSize:24,
+		color:"#fff",
 	},
 	nameText:{
 		fontSize:50
@@ -258,11 +291,6 @@ const styles = StyleSheet.create({
 	submitButtonText:{
 		fontSize:18,
 		color:"#fff"
-	},
-	speakIco:{
-		width:30,
-		height:30,
-		resizeMode: Image.resizeMode.contain
 	},
 	textinput:{
 		height:200,

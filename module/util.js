@@ -11,6 +11,10 @@ import {
 Platform
 } from "react-native"
 import {URL,VERSION} from "./config"
+import {
+	Platform
+} from "react-native"
+
 import Device from "react-native-device-info"
 class Util {
 	static fetchData(postdata) {

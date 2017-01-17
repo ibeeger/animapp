@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-14 10:40:05
+* @Last Modified time: 2017-01-17 20:40:20
 */
 
 'use strict';
@@ -16,10 +16,12 @@ import {
   View,
   ListView,
   Linking,
-  Alert
+  Alert,
+  Animated,
+  NetInfo,
+  ToastAndroid
 } from 'react-native';
 
-import {VERSION} from "../config"
 import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
@@ -31,15 +33,26 @@ class Index extends Component {
 	  super(props);
 	  this.state = {
        load:false,
+       fadeAnim:new Animated.Value(1),
        dataSource: ds.cloneWithRows([{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."}]),
        swiperData:[]
     };
     this.renderRow = this.renderRow.bind(this);
     this.renderSwiper = this.renderSwiper.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+    this.renderAd = this.renderAd.bind(this);
 	}
   
   componentDidMount(){
-      let _this = this;
+        let _this = this;
+         setTimeout(function(){
+            _this.fetchData();
+         },600);
+         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.LONG)});
+  }
+
+  fetchData(){
+    let _this = this;
       Util.fetchData({index:true}).then(function(data) {
         //判断新版本
         if (data["upgrade"]) {
@@ -56,6 +69,7 @@ class Index extends Component {
         }
         _this.setState({
           load:true,
+          splashImage:null,
           dataSource:ds.cloneWithRows(data.data),
           swiperData:data["swiperData"]
         })
@@ -78,7 +92,7 @@ class Index extends Component {
       </View>
     );
   }
-
+  
   renderList(){
         return(
           <View style={styles.listMain}>
@@ -140,10 +154,20 @@ class Index extends Component {
       }
       
   }
+
+  renderAd(){
+          return (<View style={styles.adBox}>
+          <View style={styles.loadView}>
+              <Text style={styles.msgtext}>数据加载中</Text>
+          </View>
+        </View>)
+  }
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();
+    let ad = this.renderAd();
     if (this.state.load) {
+         ad = null;
         swiper = this.renderSwiper();
     }
 		return(
@@ -154,6 +178,7 @@ class Index extends Component {
         <View style={styles.listMain}>
           {main}
         </View>
+        {ad}
       </View>
 			)
 	}
