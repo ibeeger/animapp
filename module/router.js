@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:11:29
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 15:33:46
+* @Last Modified time: 2017-01-17 16:11:01
 */
 
 'use strict';
@@ -19,13 +19,14 @@ import List from './pages/list'
 import Item from './pages/item'
 import Webpage from './pages/showweb'
 import Submit from './pages/submit'
+import Error from './pages/Error'
 
 const RouteMap = {
     'home': {index: 0, component: Index, params: {}},
     'list': {index: 1, component: List, params: {}},
     'item': {index: 2, component: Item, params: {hasfeedback:true}},
     'webpage': {index: 3, component: Webpage, params: {}},
-    'submit': {index: 3, component: Submit, params: {}},
+    'submit': {index: 4, component: Submit, params: {}}
 };
 
 

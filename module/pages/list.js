@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 15:42:26
+* @Last Modified time: 2017-01-17 16:07:08
 */
 
 'use strict';
@@ -96,7 +96,7 @@ class List extends Component {
 
 	render(){
     let main = this.renderLoad();
-    let title = this.props.title +" "+this.state.num;
+    let title = this.props.title +" "+(this.state.num || "");
     let navigator = this.props.navigator;
     if (this.state.load) {
       main = this.renderList();
