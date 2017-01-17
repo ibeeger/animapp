@@ -44,10 +44,10 @@ class Index extends Component {
 	}
   
   componentDidMount(){
-          Animated.timing(          // Uses easing functions
-           this.state.fadeAnim,    // The value to drive
-           {toValue: 0,delay:1000},           // Configuration
-         ).start(this.fetchData);
+        let _this = this;
+         setTimeout(function(){
+            _this.fetchData();
+         },600);
          NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.LONG)});
   }
 
@@ -156,14 +156,11 @@ class Index extends Component {
   }
 
   renderAd(){
-           let url = this.state.splashImage || "";
-          return (<Animated.View style={[styles.adBox,{opacity:this.state.fadeAnim}]}>
+          return (<View style={styles.adBox}>
           <View style={styles.loadView}>
               <Text style={styles.msgtext}>数据加载中</Text>
           </View>
-        </Animated.View>)
-       
-    
+        </View>)
   }
   
 	render(){

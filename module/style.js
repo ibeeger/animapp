@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
 		zIndex:10,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor:"rgba(255,255,255,0.2)"
+		backgroundColor:"rgba(255,255,255,0.1)"
 	},
 	loadView:{
 		width:w2,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 		justifyContent:"center",
 		alignItems:"center",
 		borderRadius:15,
-		backgroundColor:"#fff"
+		backgroundColor:"rgba(255,255,255,0.8)"
 	},
 	adImage:{
 		flex:1,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	msgtext: {
-		fontSize: 12,
+		fontSize: 14,
 		color: "#ccc",
 		alignSelf:"center"
 	},

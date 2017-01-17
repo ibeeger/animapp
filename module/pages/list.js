@@ -13,6 +13,7 @@ import {
   TouchableHighlight,
   View,
   Image,
+  Animated,
   ListView
 } from 'react-native';
 
@@ -44,7 +45,7 @@ class List extends Component {
             dataSource:ds.cloneWithRows(data.data),
             arr:data.data
           })
-        },200)
+        },400)
     })
    }
 
@@ -88,25 +89,28 @@ class List extends Component {
       )
   }
 
-  renderLoad(){
-      return(
-            <View style={styles.message}>
+  renderAd(){
+          return (<View style={styles.adBox}>
+          <View style={styles.loadView}>
               <Text style={styles.msgtext}>数据加载中</Text>
-            </View>
-          )
+          </View>
+        </View>)
   }
 
 	render(){
-    let main = this.renderLoad();
+    let main = null;
     let title = this.props.title +" "+(this.state.num || "");
     let navigator = this.props.navigator;
+    let ad = this.renderAd();
     if (this.state.load) {
+      ad = null;
       main = this.renderList();
     }
 		return(
     <View style={styles.main}>
   		  <Header  navigator={navigator} hasfeedback={false} title={title} />
         {main}
+        {ad}
       </View>
 			)
 	}
