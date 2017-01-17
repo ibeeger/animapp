@@ -69,11 +69,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor:"#f0f0f0",
 		flex: 1,
+		width:w
 	},
 	list: {
 		justifyContent: 'flex-start',
 		flexDirection: 'row',
 		flexWrap: 'wrap',
+		width:w,
 	},
 	message: {
 		justifyContent: 'center',
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
 		marginBottom:0
 	},
 	itempic: {
-		width: (w2*1-16),
+		width: (w2*1-10),
 		height: 100,
 		marginTop:10,
 		marginBottom:0,
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
 	ImgView: {
 		justifyContent:"center",
 		height: 100,
-		width:(w2*1-20),
+		width:(w2*1-10),
 		alignSelf: "center"
 	},
 	row: {
