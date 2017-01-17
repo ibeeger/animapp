@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 15:42:09
+* @Last Modified time: 2017-01-17 20:14:22
 */
 
 'use strict';
@@ -35,35 +35,40 @@ class Item extends Component {
 	  	msg:"加载中",
 	  };
 
-	   let _this = this;
-	   
-      Util.fetchData({animid:props._id,typeid:props.type}).then(function(data) {
-      	if (data.code==0) {
-      		  let _data = data.data[0];
-      		  _this.setState({
-		          load:true,
-		    	  arr:props.arr,
-		    	  title:(props.cur*1+1)+"/"+props.arr.length,
-		          ename:_data.ename,
-		          animtype:props.type,
-		          pinyin:_data.pinyin,
-		          name:_data.name,
-		          desc:_data.desc || "暂无描述",
-		          img:_data.img,
-		          prev:props.cur>0? props.cur-1 : 0,
-		          next:props.cur<props.arr.length ? (props.cur*1+1) : props.arr.length
-		        })
-      	}else{
-      		_this.setState({
-      			msg:data.msg
-      		})
-      	}
-        
-    })
       this.loadImg = this.loadImg.bind(this);
       this.changeAnimPrev = this.changeAnimPrev.bind(this);
       this.changeAnimNext = this.changeAnimNext.bind(this);
 	}
+
+	componentDidMount() {
+			let _this = this;
+		      Util.fetchData({animid:props._id,typeid:props.type}).then(function(data) {
+		      	if (data.code==0) {
+		      		  let _data = data.data[0];
+		      	     setTimeout(function(){
+				      		  _this.setState({
+						          load:true,
+						    	  arr:props.arr,
+						    	  title:(props.cur*1+1)+"/"+props.arr.length,
+						          ename:_data.ename,
+						          animtype:props.type,
+						          pinyin:_data.pinyin,
+						          name:_data.name,
+						          desc:_data.desc || "暂无描述",
+						          img:_data.img,
+						          prev:props.cur>0? props.cur-1 : 0,
+						          next:props.cur<props.arr.length ? (props.cur*1+1) : props.arr.length
+						        })
+		      		},200)
+		      	}else{
+			      	setTimeout(function(){
+			      		_this.setState({
+			      			msg:data.msg
+			      		})
+			      	},100)
+		      	}
+		    })
+	},
 
 	changeAnimPrev(){
 		if (!this.state.imgload) {

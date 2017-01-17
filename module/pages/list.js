@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:01:48
+* @Last Modified time: 2017-01-17 20:11:38
 */
 
 'use strict';
@@ -44,7 +44,7 @@ class List extends Component {
             dataSource:ds.cloneWithRows(data.data),
             arr:data.data
           })
-        },600)
+        },200)
     })
    }
 
