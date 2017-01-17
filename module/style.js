@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-17 17:25:46
+ * @Last Modified time: 2017-01-17 19:38:02
  */
 
 'use strict';
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 		left:0,
 		top:0,
 		zIndex:10,
-		backgroundColor:"#fff"
+		backgroundColor:"rgba(255,255,255,0.1)"
 	},
 	adImage:{
 		flex:1,

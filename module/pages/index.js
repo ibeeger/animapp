@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 19:22:11
+* @Last Modified time: 2017-01-17 19:40:04
 */
 
 'use strict';
@@ -157,7 +157,7 @@ class Index extends Component {
   renderAd(){
   
           return (<Animated.View style={[styles.adBox,{opacity:this.state.fadeAnim}]}>
-          <Image source={require('../assets/splash.png')} style={styles.adImage} />
+          <Image source={require('./img/splash.png')} style={styles.adImage} />
         </Animated.View>)
        
     
