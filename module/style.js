@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-17 19:38:02
+ * @Last Modified time: 2017-01-17 20:38:59
  */
 
 'use strict';
@@ -31,7 +31,17 @@ const styles = StyleSheet.create({
 		left:0,
 		top:0,
 		zIndex:10,
-		backgroundColor:"rgba(255,255,255,0.1)"
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor:"rgba(255,255,255,0.2)"
+	},
+	loadView:{
+		width:w2,
+		height:100,
+		justifyContent:"center",
+		alignItems:"center",
+		borderRadius:15,
+		backgroundColor:"#fff"
 	},
 	adImage:{
 		flex:1,
@@ -99,7 +109,7 @@ const styles = StyleSheet.create({
 	},
 	msgtext: {
 		fontSize: 12,
-		color: "#f0f0f0",
+		color: "#ccc",
 		alignSelf:"center"
 	},
 

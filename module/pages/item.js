@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:14:22
+* @Last Modified time: 2017-01-17 20:17:30
 */
 
 'use strict';
@@ -68,7 +68,7 @@ class Item extends Component {
 			      	},100)
 		      	}
 		    })
-	},
+	}
 
 	changeAnimPrev(){
 		if (!this.state.imgload) {
