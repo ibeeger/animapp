@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 15:38:03
+* @Last Modified time: 2017-01-18 16:34:08
 */
 
 'use strict';
@@ -17,7 +17,6 @@ import {
   ListView,
   Linking,
   Alert,
-  Animated,
   NetInfo,
   ToastAndroid
 } from 'react-native';
@@ -39,7 +38,6 @@ class Index extends ComMixin {
 	  super(props);
 	  this.state = {
        load:false,
-       fadeAnim:new Animated.Value(1),
        dataSource: ds.cloneWithRows([{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."}]),
        swiperData:[]
     };

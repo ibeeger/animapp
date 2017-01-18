@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2017-01-05 16:25:59
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-14 12:29:55
+ * @Last Modified time: 2017-01-18 18:24:59
  */
 
 'use strict';
@@ -15,6 +15,11 @@ import {
 import Device from "react-native-device-info"
 class Util {
 	static fetchData(postdata) {
+		// let timer = new Date();
+		// let arg2 = timer.getMonth();
+		// timer = timer.getFullYear()+""+timer.getMonth()+""+timer.getDate();
+		// timer = parseInt(timer,arg2);
+		
 		postdata = Object.assign({},postdata,{v:Device.getVersion(),os:Platform.OS});
 		let url = URL;
 		if (arguments.length==2) {
