@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-17 15:22:57
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 13:52:53
+* @Last Modified time: 2017-01-18 15:02:30
 */
 
 'use strict';
@@ -21,29 +21,36 @@ import {
 
 import styles from "../style"
 import * as WeChat from 'react-native-wechat';
+ 
+import Icon from 'react-native-vector-icons/EvilIcons';
+
+const BackBtn = (<Icon name="chevron-left" size={40} color="#fff" />)
+const FeedBtn = (<Icon name="exclamation" size={30} color="#fff" />)
+const ShareBtn = (<Icon name="share-google" size={30} color="#fff" />);
+
+
+const colors = ["#f5bc37","#60adfd","#f28b51","#a65bf0","#40e6e2","#fc5d57"]
+
 
 class Header extends Component {
 	constructor(props) {
 	  super(props);
-	  this.state = {};
+	  this.state = {
+	  	bgcolor:colors[parseInt(Math.random()*6, 10)]
+	  };
 	  this.renderFeedBack = this.renderFeedBack.bind(this);
 	  this.shareToWechat = this.shareToWechat.bind(this);
 	}
 
-	componentDidMount() {
-	     WeChat.registerApp("1105861173");
-	}
-
 	renderFeedBack(){
 		let {navigator} = this.props;
-		let feedtext = "反馈"
 		return(
 				<View style={styles.titleBtn}>
-						<TouchableHighlight onPress={() => {
+						<TouchableHighlight  underlayColor="rgba(255,255,255,.1)"  onPress={() => {
 					          		 navigator.push({id:'submit',index:0,params:{}})
 					      		 }}>
 					        <View style={styles.titleBtn}> 
-					      		<Text>{feedtext}</Text>
+					      		{FeedBtn}
 					        </View>
 					    </TouchableHighlight>
 				</View>
@@ -70,12 +77,11 @@ class Header extends Component {
 
 	renderShare(){
 		let {navigator} = this.props;
-		let feedtext = "分享"
 		return(
 				<View style={styles.titleBtn}>
-						<TouchableHighlight onPress={this.shareToWechat}>
+						<TouchableHighlight  underlayColor="rgba(255,255,255,.1)"  onPress={this.shareToWechat}>
 					        <View style={styles.titleBtn}> 
-					      		<Text>{feedtext}</Text>
+					      		{ShareBtn}
 					        </View>
 					    </TouchableHighlight>
 				</View>
@@ -84,8 +90,8 @@ class Header extends Component {
 
 	render(){
 		let {navigator,hasfeedback,title,hasshare} = this.props;
-		let feedback = <View style={styles.titleBtn}></View>
-		let sharebtn = <View style={styles.titleBtn}></View>
+		let feedback = null
+		let sharebtn = null
 		if (hasfeedback) {
 			feedback = this.renderFeedBack();
 		}
@@ -95,13 +101,13 @@ class Header extends Component {
 		}
 
 		return(
-				<View style={styles.header}>
+				<View style={[styles.header,{backgroundColor:this.state.bgcolor}]}>
 					<View style={styles.titleBtn}>  
-						<TouchableHighlight onPress={() => {
+						<TouchableHighlight  underlayColor="rgba(255,255,255,.1)"  onPress={() => {
 					           navigator.pop()
 					       }}>
 					       <View style={styles.titleBtn}> 
-					       		<Text>返回</Text>
+					       		{BackBtn}
 					       </View>
 					    </TouchableHighlight>
        				</View>

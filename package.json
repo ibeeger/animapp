@@ -12,7 +12,8 @@
     "react-native-device-info": "^0.9.7",
     "react-native-swiper": "^1.5.4",
     "react-native-tts": "^0.4.0",
-    "react-native-wechat":"^1.8.0"  
+    "react-native-vector-icons": "^4.0.0",
+    "react-native-wechat": "^1.8.0"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

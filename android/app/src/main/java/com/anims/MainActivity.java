@@ -1,6 +1,7 @@
 package com.anims;
 
 import com.facebook.react.ReactActivity;
+import com.oblador.vectoricons.VectorIconsPackage;
 import net.no_mad.tts.TextToSpeechPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.theweflex.react.WeChatPackage;

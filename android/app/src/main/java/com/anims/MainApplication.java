@@ -2,7 +2,7 @@ package com.anims;
 
 import android.app.Application;
 import android.util.Log;
-
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactApplication;
 import com.theweflex.react.WeChatPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
@@ -29,7 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new WeChatPackage(),
             new RNDeviceInfo(),
-          new TextToSpeechPackage()
+          new TextToSpeechPackage(),
+           new VectorIconsPackage()
       );
     }
   };

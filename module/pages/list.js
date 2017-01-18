@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 11:58:43
+* @Last Modified time: 2017-01-18 15:39:11
 */
 
 'use strict';
@@ -18,15 +18,12 @@ import {
   ToastAndroid
 } from 'react-native';
 
-
-
 import styles from "../style"
 import Util from "../util.js"
-
 import Header from "../components/header"
+import ComMixin from "./mixin"
 
-
-class List extends Component {
+class List extends ComMixin {
 	constructor(props) {
 	  super(props);
 	  this.state = {
@@ -38,8 +35,6 @@ class List extends Component {
 	}
  
    componentDidMount(){
-
-   
       let _this = this;
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       Util.fetchData({type:this.props.type}).then(function(data) {
@@ -93,14 +88,6 @@ class List extends Component {
                 />
             </View>
       )
-  }
-
-  renderAd(){
-          return (<View style={styles.adBox}>
-          <View style={styles.loadView}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-          </View>
-        </View>)
   }
 
 	render(){

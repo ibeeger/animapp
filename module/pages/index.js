@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 10:19:11
+* @Last Modified time: 2017-01-18 15:38:03
 */
 
 'use strict';
@@ -26,9 +26,15 @@ import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
 
+import ComMixin from "./mixin"
+
 const colors = ["#f5bc37","#60adfd","#f28b51","#a65bf0","#40e6e2","#fc5d57"]
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-class Index extends Component {
+
+
+
+class Index extends ComMixin {
+
 	constructor(props) {
 	  super(props);
 	  this.state = {
@@ -106,14 +112,6 @@ class Index extends Component {
       )
   }
 
-  renderLoad(){
-      return(
-            <View style={styles.message}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-            </View>
-          )
-  }
-
   renderSwiper(){
       let list = this.state.swiperData;
       let _this = this;
@@ -155,13 +153,7 @@ class Index extends Component {
       
   }
 
-  renderAd(){
-          return (<View style={styles.adBox}>
-          <View style={styles.loadView}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-          </View>
-        </View>)
-  }
+ 
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();
