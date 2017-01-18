@@ -3,6 +3,7 @@ package com.anims;
 import com.facebook.react.ReactActivity;
 import net.no_mad.tts.TextToSpeechPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
+import com.theweflex.react.WeChatPackage;
 
 public class MainActivity extends ReactActivity {
 

@@ -65,6 +65,10 @@
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
 
+# wechat
+-keep class com.tencent.mm.sdk.** {
+   *;
+}
 
  -ignorewarnings
 

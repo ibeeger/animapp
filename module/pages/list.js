@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:11:38
+* @Last Modified time: 2017-01-18 11:58:43
 */
 
 'use strict';
@@ -14,8 +14,11 @@ import {
   View,
   Image,
   Animated,
-  ListView
+  ListView,
+  ToastAndroid
 } from 'react-native';
+
+
 
 import styles from "../style"
 import Util from "../util.js"
@@ -35,6 +38,8 @@ class List extends Component {
 	}
  
    componentDidMount(){
+
+   
       let _this = this;
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       Util.fetchData({type:this.props.type}).then(function(data) {
@@ -74,6 +79,7 @@ class List extends Component {
       </View>
     );
   }
+
 
   renderList(){
         return(

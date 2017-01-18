@@ -25,6 +25,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		697B894DD2C3467C89143F6A /* libTextToSpeech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050E8202B64F97817807CC /* libTextToSpeech.a */; };
 		E0B66DFEE62A4F32A205D0F1 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D65D29A2C6E4F24AE877A03 /* libRNDeviceInfo.a */; };
+		FEA7FCBB0444412B9CCF9437 /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA058FCAF49483D9E3461DC /* libRCTWeChat.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +240,8 @@
 		4E050E8202B64F97817807CC /* libTextToSpeech.a */ = {isa = PBXFileReference; name = "libTextToSpeech.a"; path = "libTextToSpeech.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		A85D0F4179D34783A226A0C6 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; name = "RNDeviceInfo.xcodeproj"; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		8D65D29A2C6E4F24AE877A03 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; name = "libRNDeviceInfo.a"; path = "libRNDeviceInfo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		3394FB33102C471D888AD906 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; name = "RCTWeChat.xcodeproj"; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		CEA058FCAF49483D9E3461DC /* libRCTWeChat.a */ = {isa = PBXFileReference; name = "libRCTWeChat.a"; path = "libRCTWeChat.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +270,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				697B894DD2C3467C89143F6A /* libTextToSpeech.a in Frameworks */,
 				E0B66DFEE62A4F32A205D0F1 /* libRNDeviceInfo.a in Frameworks */,
+				FEA7FCBB0444412B9CCF9437 /* libRCTWeChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				FEEE94DD8FF2454DA54BDA9A /* TextToSpeech.xcodeproj */,
 				A85D0F4179D34783A226A0C6 /* RNDeviceInfo.xcodeproj */,
+				3394FB33102C471D888AD906 /* RCTWeChat.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -836,6 +841,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anims.app/Anims";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -852,6 +858,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anims.app/Anims";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Release;
