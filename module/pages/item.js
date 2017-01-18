@@ -31,8 +31,9 @@ class Item extends Component {
 	  this.state = {
 	  	load:false,
 	  	imgload:false,
+	  	title:"",
 	  	data:null,
-	  	msg:"加载中",
+	  	msg:"...",
 	  };
 
       this.loadImg = this.loadImg.bind(this);
@@ -42,6 +43,7 @@ class Item extends Component {
 
 	componentDidMount() {
 			let _this = this;
+			let props =this.props;
 		      Util.fetchData({animid:props._id,typeid:props.type}).then(function(data) {
 		      	if (data.code==0) {
 		      		  let _data = data.data[0];
@@ -59,7 +61,7 @@ class Item extends Component {
 						          prev:props.cur>0? props.cur-1 : 0,
 						          next:props.cur<props.arr.length ? (props.cur*1+1) : props.arr.length
 						        })
-		      		},200)
+		      		},400)
 		      	}else{
 			      	setTimeout(function(){
 			      		_this.setState({
@@ -161,24 +163,25 @@ class Item extends Component {
 
 	renderLoadingImg(){
 		 return(
-              <Text style={styles.msgtext,{position:'absolute',left:(w2-15),top:70}}>{this.state.msg}</Text>
+              <Text style={styles.msgtext,{position:'absolute',left:(w2-6),top:90}}>{this.state.msg}</Text>
           )
 	}
 
-	renderLoading(){
-		 return(
-            <View style={styles.message}>
-              <Text style={styles.msgtext}>{this.state.msg}</Text>
-            </View>
-          )
-	}
+	renderAd(){
+          return (<View style={styles.adBox}>
+          <View style={styles.loadView}>
+              <Text style={styles.msgtext}>数据加载中</Text>
+          </View>
+        </View>)
+  }
 
 	render(){
 		let navigator = this.props.navigator;
 		let {img,name,ename,pinyin,desc,title} = this.state;
-		if (!this.state.load) {
-			return this.renderLoading();
-		}else{
+		let ad = this.renderAd();
+		if (this.state.load) {
+			 ad=null;
+		}
 			let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/"+img;
 			let show = 1;
 			let imgItem = null;
@@ -230,9 +233,9 @@ class Item extends Component {
        					 
 						</View>
 					</View>
+					{ad}
 				</View>
 			)
-		}
 		
 	}
 

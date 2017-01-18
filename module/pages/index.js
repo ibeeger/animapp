@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:40:52
+* @Last Modified time: 2017-01-18 10:19:11
 */
 
 'use strict';
@@ -44,11 +44,11 @@ class Index extends Component {
 	}
   
   componentDidMount(){
-          Animated.timing(          // Uses easing functions
-           this.state.fadeAnim,    // The value to drive
-           {toValue: 0,delay:1000},           // Configuration
-         ).start(this.fetchData);
-         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.LONG)});
+        let _this = this;
+         setTimeout(function(){
+            _this.fetchData();
+         },600);
+         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.SHORT)});
   }
 
   fetchData(){
@@ -156,14 +156,11 @@ class Index extends Component {
   }
 
   renderAd(){
-           let url = this.state.splashImage || "";
-          return (<Animated.View style={[styles.adBox,{opacity:this.state.fadeAnim}]}>
+          return (<View style={styles.adBox}>
           <View style={styles.loadView}>
               <Text style={styles.msgtext}>数据加载中</Text>
           </View>
-        </Animated.View>)
-       
-    
+        </View>)
   }
   
 	render(){
