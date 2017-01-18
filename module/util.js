@@ -7,9 +7,7 @@
 
 'use strict';
 
-import {
-Platform
-} from "react-native"
+
 import {URL,VERSION} from "./config"
 import {
 	Platform

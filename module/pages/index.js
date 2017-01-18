@@ -19,6 +19,7 @@ import {
   Alert,
   Animated,
   NetInfo,
+  Platform,
   ToastAndroid
 } from 'react-native';
 
@@ -47,8 +48,12 @@ class Index extends Component {
         let _this = this;
          setTimeout(function(){
             _this.fetchData();
-         },600);
-         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.LONG)});
+         },1000);
+         NetInfo.fetch().done((isConnected) => { 
+          if (Platform.OS=='android') {
+               ToastAndroid.show(isConnected,ToastAndroid.LONG)
+          }
+        });
   }
 
   fetchData(){
@@ -147,7 +152,7 @@ class Index extends Component {
           })
 
         return (
-            <Swiper style={styles.swiperMain} showsPagination={true} paginationStyle={styles.dotpositon} threshold={20} autoplay={true} autoplayTimeout={5} autoplayDirection={true}>
+            <Swiper style={styles.swiperMain} showsPagination={true} paginationStyle={styles.dotpositon} threshold={20} autoplay={false} autoplayTimeout={5} autoplayDirection={true}>
                 {arr}
              </Swiper>
         )

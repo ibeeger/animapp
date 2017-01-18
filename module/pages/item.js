@@ -226,7 +226,7 @@ class Item extends Component {
 									 <Text style={styles.nameText}>{name}</Text>
 								</View>
 								 <View style={styles.playBtnOut}> 
-									<TouchableHighlight onPress={this.playName}>
+									<TouchableHighlight  underlayColor="rgba(255,255,255,.1)" onPress={this.playName}>
 
 								       <View style={styles.playBtn}> 
 								       		<Text style={styles.PlayText}>音</Text>

@@ -92,18 +92,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: "rgb(24,189,255)",
 	},
-	listMain:{
-		alignItems: 'center',
-		backgroundColor:"#f0f0f0",
-		flex: 1,
-		width:w
-	},
-	list: {
-		justifyContent: 'flex-start',
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		width:w,
-	},
 	message: {
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -115,7 +103,6 @@ const styles = StyleSheet.create({
 		color: "#ccc",
 		alignSelf:"center"
 	},
-
 	tips: {
 		fontSize: 14,
 		color: "#999999"
@@ -128,19 +115,38 @@ const styles = StyleSheet.create({
 		marginRight:5,
 		marginBottom:0
 	},
+	listMain:{
+		alignItems: 'center',
+		backgroundColor:"#f0f0f0",
+		flex: 1,
+		width:w,
+		paddingBottom:10
+	},
+	list: {
+		justifyContent: 'flex-start',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		width:w,
+	},
 	itempic: {
-		width: (w2*1-10),
+		width: w2,
 		height: 100,
 		marginTop:10,
-		marginBottom:0,
+		marginBottom:0
+	},
+	ImgView: {
+		width:(w2-10),
+		height: 100,
+		alignSelf: "center",
+		borderRadius:5,
+		justifyContent:"center",
 		marginLeft:5,
 		marginRight:5
 	},
-	ImgView: {
-		justifyContent:"center",
-		height: 100,
-		width:(w2*1-10),
-		alignSelf: "center"
+	Img: {
+		resizeMode: Image.resizeMode.cover,
+		flex: 1,
+		borderRadius:5
 	},
 	row: {
 		height: 100,
@@ -169,7 +175,7 @@ const styles = StyleSheet.create({
 		backgroundColor:"rgba(255,255,255,0.5)",
 		position:"absolute",
 		bottom:0,
-		left:0
+		left:5
 	},
 	swiperItem: {
 		width:w,
@@ -190,12 +196,7 @@ const styles = StyleSheet.create({
 		width:w,
 		alignSelf:"center"
 	},
-	ImgView: {
-		width:w2,
-		height: 100,
-		alignSelf: "center",
-		borderRadius:5,
-	},
+	
 	IndexImg:{
 		width:w,
 		height:200,
@@ -247,11 +248,6 @@ const styles = StyleSheet.create({
 	},
 	nameText:{
 		fontSize:50
-	},
-	Img: {
-		resizeMode: Image.resizeMode.cover,
-		flex: 1,
-		borderRadius:5
 	},
 	BigImg: {
 		resizeMode: Image.resizeMode.cover,
