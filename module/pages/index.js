@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:40:20
+* @Last Modified time: 2017-01-18 16:34:08
 */
 
 'use strict';
@@ -17,7 +17,6 @@ import {
   ListView,
   Linking,
   Alert,
-  Animated,
   NetInfo,
   Platform,
   ToastAndroid
@@ -27,14 +26,19 @@ import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
 
+import ComMixin from "./mixin"
+
 const colors = ["#f5bc37","#60adfd","#f28b51","#a65bf0","#40e6e2","#fc5d57"]
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-class Index extends Component {
+
+
+
+class Index extends ComMixin {
+
 	constructor(props) {
 	  super(props);
 	  this.state = {
        load:false,
-       fadeAnim:new Animated.Value(1),
        dataSource: ds.cloneWithRows([{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."},{name:"..."}]),
        swiperData:[]
     };
@@ -48,12 +52,17 @@ class Index extends Component {
         let _this = this;
          setTimeout(function(){
             _this.fetchData();
+<<<<<<< HEAD
          },1000);
          NetInfo.fetch().done((isConnected) => { 
           if (Platform.OS=='android') {
                ToastAndroid.show(isConnected,ToastAndroid.LONG)
           }
         });
+=======
+         },600);
+         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.SHORT)});
+>>>>>>> v1.0.4
   }
 
   fetchData(){
@@ -111,14 +120,6 @@ class Index extends Component {
       )
   }
 
-  renderLoad(){
-      return(
-            <View style={styles.message}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-            </View>
-          )
-  }
-
   renderSwiper(){
       let list = this.state.swiperData;
       let _this = this;
@@ -160,13 +161,7 @@ class Index extends Component {
       
   }
 
-  renderAd(){
-          return (<View style={styles.adBox}>
-          <View style={styles.loadView}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-          </View>
-        </View>)
-  }
+ 
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();

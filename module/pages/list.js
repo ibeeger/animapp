@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:11:38
+* @Last Modified time: 2017-01-18 15:39:11
 */
 
 'use strict';
@@ -14,16 +14,16 @@ import {
   View,
   Image,
   Animated,
-  ListView
+  ListView,
+  ToastAndroid
 } from 'react-native';
 
 import styles from "../style"
 import Util from "../util.js"
-
 import Header from "../components/header"
+import ComMixin from "./mixin"
 
-
-class List extends Component {
+class List extends ComMixin {
 	constructor(props) {
 	  super(props);
 	  this.state = {
@@ -72,6 +72,7 @@ class List extends Component {
     );
   }
 
+
   renderList(){
         return(
           <View style={styles.listMain}>
@@ -84,14 +85,6 @@ class List extends Component {
                 />
             </View>
       )
-  }
-
-  renderAd(){
-          return (<View style={styles.adBox}>
-          <View style={styles.loadView}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-          </View>
-        </View>)
   }
 
 	render(){
