@@ -22,13 +22,12 @@
     <string>1</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
-
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>LSApplicationQueriesSchemes</key>
       <array>
-          <string>weixin</string>
-          <string>wechat</string>
+        <string>weixin</string>
+        <string>wechat</string>
       </array>
       <key>NSAllowsArbitraryLoads</key>
       <true/>

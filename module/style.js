@@ -50,15 +50,10 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.cover
 	},
 	header: {
-<<<<<<< HEAD
 		height: 80,
 		paddingTop:20,
-		justifyContent: 'center',
-=======
-		height: 60,
 		width:w,
 		justifyContent: 'flex-start',
->>>>>>> v1.0.4
 		alignItems: 'center',
 		backgroundColor: "rgb(24,189,255)",
 		flexDirection: 'row'

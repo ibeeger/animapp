@@ -2,9 +2,10 @@ package com.anims;
 
 import android.app.Application;
 import android.util.Log;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactApplication;
 import com.theweflex.react.WeChatPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -28,6 +29,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new WeChatPackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
             new RNDeviceInfo(),
           new TextToSpeechPackage(),
            new VectorIconsPackage()
