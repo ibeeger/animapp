@@ -147,8 +147,8 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-vector-icons')
     compile project(':react-native-wechat')
+    compile project(':react-native-vector-icons')
     compile project(':react-native-device-info')
     compile project(':react-native-tts')
     compile fileTree(dir: "libs", include: ["*.jar"])
