@@ -52,17 +52,14 @@ class Index extends ComMixin {
         let _this = this;
          setTimeout(function(){
             _this.fetchData();
-<<<<<<< HEAD
          },1000);
+         
          NetInfo.fetch().done((isConnected) => { 
           if (Platform.OS=='android') {
                ToastAndroid.show(isConnected,ToastAndroid.LONG)
           }
         });
-=======
-         },600);
-         NetInfo.fetch().done((isConnected) => { ToastAndroid.show(isConnected,ToastAndroid.SHORT)});
->>>>>>> v1.0.4
+
   }
 
   fetchData(){

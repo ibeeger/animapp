@@ -39,11 +39,9 @@ class Item extends ComMixin {
 	  	data:null,
 	  	msg:"...",
 	  };
-<<<<<<< HEAD
 
       TTS.resume();
-=======
->>>>>>> v1.0.4
+
       this.loadImg = this.loadImg.bind(this);
       this.playName = this.playName.bind(this);
       this.changeAnimPrev = this.changeAnimPrev.bind(this);
@@ -196,15 +194,8 @@ class Item extends ComMixin {
 		if (this.state.load) {
 			 ad=null;
 		}
-<<<<<<< HEAD
-
-			let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/"+img;
-			let show = 1;
-			let imgItem = null;
-=======
 		let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/"+img;
 		let imgItem = null;
->>>>>>> v1.0.4
 			if (!this.state.imgload) {
 				imgItem = this.renderLoadingImg();
 			}
