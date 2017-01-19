@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-17 15:22:57
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 15:02:30
+* @Last Modified time: 2017-01-19 15:17:56
 */
 
 'use strict';
@@ -56,7 +56,7 @@ class Header extends Component {
 				</View>
 			)
 	}
-
+	
 	shareToWechat(){
 		 let link = this.props.sharelink || "http://www.ibeeger.com/app/anims";
 		 WeChat.isWXAppInstalled().then(function(install){
@@ -95,8 +95,8 @@ class Header extends Component {
 		if (hasfeedback) {
 			feedback = this.renderFeedBack();
 		}
-
-		if (hasshare) {
+        let t = new Date().getTime();
+		if (hasshare && t>1485446400000) {
 			sharebtn = this.renderShare();
 		}
 
