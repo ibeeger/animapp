@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 16:34:08
+* @Last Modified time: 2017-01-19 15:27:06
 */
 
 'use strict';
@@ -148,10 +148,7 @@ class Index extends ComMixin {
              </Swiper>
         )
       }
-      
   }
-
- 
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();
