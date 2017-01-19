@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:11:29
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 16:11:01
+* @Last Modified time: 2017-01-18 14:56:37
 */
 
 'use strict';
@@ -20,6 +20,7 @@ import Item from './pages/item'
 import Webpage from './pages/showweb'
 import Submit from './pages/submit'
 import Error from './pages/Error'
+
 
 const RouteMap = {
     'home': {index: 0, component: Index, params: {}},

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-07 15:53:58
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 15:45:33
+* @Last Modified time: 2017-01-18 13:49:23
 */
 
 'use strict';
@@ -43,8 +43,9 @@ export default  class WebPage extends Component{
 	render(){
 		let navigator = this.props.navigator;
 		let title = this.state.name;
+
 		return (<View style={styles.main}>
-				<Header navigator={navigator} title={title} hasfeedback={false} />
+				<Header navigator={navigator} title={title} hasfeedback={false} hasshare={true} sharelink={this.props.link} />
 					<View style={styles.container}>
 					 <WebView
 			          automaticallyAdjustContentInsets={true}

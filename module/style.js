@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-17 20:38:59
+ * @Last Modified time: 2017-01-18 15:51:14
  */
 
 'use strict';
@@ -17,7 +17,7 @@ const w =  Dimensions.get('window').width;
 const h =  Dimensions.get('window').height;
 const w2 =  Dimensions.get('window').width/2;
 const w4 =  Dimensions.get('window').width/4;
-
+const titleWidth = (w-160);
 const styles = StyleSheet.create({
 	main: {
 		flex: 1,
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
 		backgroundColor:"rgba(255,255,255,0.1)"
 	},
 	loadView:{
-		width:w2,
-		height:100,
+		width:w4,
+		height:80,
 		justifyContent:"center",
 		alignItems:"center",
 		borderRadius:15,
@@ -50,24 +50,30 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.cover
 	},
 	header: {
+<<<<<<< HEAD
 		height: 80,
 		paddingTop:20,
 		justifyContent: 'center',
+=======
+		height: 60,
+		width:w,
+		justifyContent: 'flex-start',
+>>>>>>> v1.0.4
 		alignItems: 'center',
-		backgroundColor: '#18bbf2',
+		backgroundColor: "rgb(24,189,255)",
 		flexDirection: 'row'
 	},
 	welcome: {
 		fontSize: 18,
 		textAlign: 'center',
-		color: "#ffffff"
+		color: "#ffffff",
+		alignSelf:"center"
 	},
 	titleBtn: {
 		justifyContent: 'center',
 		alignItems: 'center',
 		height: 60,
-		width: 80,
-		backgroundColor: "rgb(24,189,255)",
+		width: 80
 	},
 	container: {
 		flex: 9,
@@ -86,11 +92,10 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
 	},
 	title: {
-		flex: 5,
+		width:titleWidth,
 		height: 60,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: "rgb(24,189,255)",
 	},
 	message: {
 		justifyContent: 'center',
@@ -230,7 +235,7 @@ const styles = StyleSheet.create({
 		height:40,
 		position:"absolute",
 		right:7,
-		top:7,
+		top:5,
 		borderRadius:20,
 	},
 	playBtn:{
@@ -239,7 +244,6 @@ const styles = StyleSheet.create({
 		alignSelf:"center",
 		justifyContent:"center",
 		alignItems:"center",
-		backgroundColor:"#fc5d57",
 		borderRadius:20
 	},
 	PlayText:{

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 20:17:30
+* @Last Modified time: 2017-01-18 15:51:38
 */
 
 'use strict';
@@ -22,9 +22,14 @@ import TTS from "react-native-speech"
 import styles from "../style.js"
 import Util from "../util.js"
 import Header from "../components/header"
+import ComMixin from "./mixin"
 
-const w2 =  Dimensions.get('window').width/2;
-class Item extends Component {
+import Icon from 'react-native-vector-icons/EvilIcons';
+
+const PlayBtn = (<Icon name="play" size={45} color="#fc5d57" />)
+
+
+class Item extends ComMixin {
 	constructor(props) {
 	  super(props);
 	  this.state = {
@@ -34,8 +39,11 @@ class Item extends Component {
 	  	data:null,
 	  	msg:"...",
 	  };
+<<<<<<< HEAD
 
       TTS.resume();
+=======
+>>>>>>> v1.0.4
       this.loadImg = this.loadImg.bind(this);
       this.playName = this.playName.bind(this);
       this.changeAnimPrev = this.changeAnimPrev.bind(this);
@@ -160,19 +168,6 @@ class Item extends Component {
 		})
 	}
 
-	renderLoadingImg(){
-		 return(
-              <Text style={styles.msgtext,{position:'absolute',left:(w2-6),top:90}}>{this.state.msg}</Text>
-          )
-	}
-
-	renderAd(){
-          return (<View style={styles.adBox}>
-          <View style={styles.loadView}>
-              <Text style={styles.msgtext}>数据加载中</Text>
-          </View>
-        </View>)
-  }
 
 
 	playName(){
@@ -201,15 +196,18 @@ class Item extends Component {
 		if (this.state.load) {
 			 ad=null;
 		}
+<<<<<<< HEAD
 
 			let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/"+img;
 			let show = 1;
 			let imgItem = null;
+=======
+		let url = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/"+img;
+		let imgItem = null;
+>>>>>>> v1.0.4
 			if (!this.state.imgload) {
-				show = 0;
 				imgItem = this.renderLoadingImg();
 			}
-			let fed = "反馈";
 			return(
 				<View style={styles.main}>
 					<Header navigator={navigator} title={title} hasfeedback={true} />
@@ -217,7 +215,7 @@ class Item extends Component {
 						<View style={styles.picshow}>
 								<View style={styles.picshow}>
 									  {imgItem}
-									  <Image source={{uri:url}} onLoad={this.loadImg}  style={[styles.BigImg,{opacity:show}]} />
+									  <Image source={{uri:url}} onLoad={this.loadImg}  style={styles.BigImg} />
 								</View>
 						</View>
 						<View style={styles.desc}>
@@ -229,7 +227,7 @@ class Item extends Component {
 									<TouchableHighlight  underlayColor="rgba(255,255,255,.1)" onPress={this.playName}>
 
 								       <View style={styles.playBtn}> 
-								       		<Text style={styles.PlayText}>音</Text>
+								       		{PlayBtn}
 								       </View>
 						      		 </TouchableHighlight>
 					      		  </View>

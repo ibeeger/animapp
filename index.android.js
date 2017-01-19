@@ -16,12 +16,14 @@ import {
   Platform
 } from 'react-native';
 
+import * as WeChat from 'react-native-wechat';
 
 const INITIAL_ROUTE = {
   id:"home",
   index:0,
   params:{}
 };
+
 
 export default class Anims extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ export default class Anims extends Component {
   }
 
   componentWillMount() {
+     WeChat.registerApp("1105861173");
     if (Platform.OS === 'android') {
       BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);
     }
