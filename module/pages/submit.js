@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-17 16:01:58
+* @Last Modified time: 2017-01-20 16:24:14
 */
 
 'use strict';
@@ -19,14 +19,15 @@ import {
   TextInput,
   Alert
 } from 'react-native';
-import {VERSION} from "../config"
+
 import styles from "../style.js"
 import Util from "../util.js"
 import Header from "../components/header"
 import Device from "react-native-device-info"
-
+ 
 const w2 =  Dimensions.get('window').width/2;
 class Submit extends Component {
+
 	constructor(props) {
 	  super(props);
 	  this.state = {
@@ -35,7 +36,8 @@ class Submit extends Component {
 	  	data:null,
 	  	msgCon:"",
 	  	name:"反馈建议",
-	  	msg:"加载中"
+	  	msg:"加载中",
+	  	VERSION:Device.getVersion()
 	  };
 	  this.onPressLearnMore = this.onPressLearnMore.bind(this);
 	}
@@ -78,7 +80,7 @@ class Submit extends Component {
 	render(){
 		let navigator = this.props.navigator;
 		let {name} = this.state;
-			 
+		
 			return(
 				<View style={styles.main}>
 					<Header navigator={navigator} title={name} hasfeedback={false} />
@@ -99,7 +101,7 @@ class Submit extends Component {
 							</ScrollView>
 							<View style={styles.viewVersion}>
 							<Text style={styles.versionfont}>微信:web0310</Text>
-							<Text style={styles.versionfont}>Version:{VERSION}</Text>
+							<Text style={styles.versionfont}>Version:{this.state.VERSION}</Text>
 							</View>
 						</View>
 				</View>
