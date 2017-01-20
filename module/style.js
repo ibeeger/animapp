@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-18 15:51:14
+ * @Last Modified time: 2017-01-20 19:30:50
  */
 
 'use strict';
@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor:"#fff"
 	},
+	sharBtn:{
+		width:160,
+		height:30
+	},	
 	adBox:{
 		flex:1,
 		width:w,

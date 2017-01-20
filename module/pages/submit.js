@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-20 16:24:14
+* @Last Modified time: 2017-01-20 16:28:23
 */
 
 'use strict';
@@ -80,7 +80,6 @@ class Submit extends Component {
 	render(){
 		let navigator = this.props.navigator;
 		let {name} = this.state;
-		
 			return(
 				<View style={styles.main}>
 					<Header navigator={navigator} title={name} hasfeedback={false} />

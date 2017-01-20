@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-17 15:22:57
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-19 15:17:56
+* @Last Modified time: 2017-01-20 19:18:25
 */
 
 'use strict';
@@ -58,16 +58,21 @@ class Header extends Component {
 	}
 	
 	shareToWechat(){
-		 let link = this.props.sharelink || "http://www.ibeeger.com/app/anims";
+		 let link = this.props.sharelink || "http://app.qq.com/#id=detail&appid=1105861173";
 		 WeChat.isWXAppInstalled().then(function(install){
 		         if (install) {
 		         	WeChat.shareToTimeline({
 		         		type:"news",
+		         		thumbImage:"https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png",
+		         		title:"宝贝识动物",
+		         		description:"宝贝都在玩哟~~~",
 		         		webpageUrl:link
-		         	}).then(function(){
-		         		ToastAndroid.show(JSON.stringify(arguments),ToastAndroid.SHORT);
+		         	}).then(function(code){
+		         		if (code==0) {
+		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);
+		         		}
 		         	}).catch(function(){
-		         		ToastAndroid.show(JSON.stringify(arguments),ToastAndroid.SHORT);
+		         		ToastAndroid.show("分享失败",ToastAndroid.SHORT);
 		         	})
 		         }
 				}).catch(function(){
@@ -89,20 +94,10 @@ class Header extends Component {
 	}
 
 	render(){
-		let {navigator,hasfeedback,title,hasshare} = this.props;
+		let {navigator,hasfeedback,title,hasshare,noback} = this.props;
 		let feedback = null
 		let sharebtn = null
-		if (hasfeedback) {
-			feedback = this.renderFeedBack();
-		}
-        let t = new Date().getTime();
-		if (hasshare && t>1485446400000) {
-			sharebtn = this.renderShare();
-		}
-
-		return(
-				<View style={[styles.header,{backgroundColor:this.state.bgcolor}]}>
-					<View style={styles.titleBtn}>  
+		let backbtn = (<View style={styles.titleBtn}>  
 						<TouchableHighlight  underlayColor="rgba(255,255,255,.1)"  onPress={() => {
 					           navigator.pop()
 					       }}>
@@ -110,7 +105,18 @@ class Header extends Component {
 					       		{BackBtn}
 					       </View>
 					    </TouchableHighlight>
-       				</View>
+       				</View>)
+		if (hasfeedback) {
+			feedback = this.renderFeedBack();
+		}
+		if (hasshare) {
+			sharebtn = this.renderShare();
+		}
+		 
+
+		return(
+				<View style={[styles.header,{backgroundColor:this.state.bgcolor}]}>
+					{backbtn}
 					<View style={styles.title}><Text style={styles.welcome} numberOfLines={1}>{title}</Text></View>
 					{feedback}
 					{sharebtn}

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:11:29
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 14:56:37
+* @Last Modified time: 2017-01-20 18:56:01
 */
 
 'use strict';
@@ -23,8 +23,8 @@ import Error from './pages/Error'
 
 
 const RouteMap = {
-    'home': {index: 0, component: Index, params: {}},
-    'list': {index: 1, component: List, params: {}},
+    'home': {index: 0, component: Index, params: {hasshare:true}},
+    'list': {index: 1, component: List, params: {hasshare:true}},
     'item': {index: 2, component: Item, params: {hasfeedback:true}},
     'webpage': {index: 3, component: Webpage, params: {}},
     'submit': {index: 4, component: Submit, params: {}}

@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-19 15:27:06
+* @Last Modified time: 2017-01-20 19:31:31
 */
 
 'use strict';
@@ -20,17 +20,17 @@ import {
   NetInfo,
   ToastAndroid
 } from 'react-native';
-
+import * as WeChat from 'react-native-wechat';
 import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
-
+import Icon from 'react-native-vector-icons/EvilIcons';
 import ComMixin from "./mixin"
-
+import Header from "../components/header"
 const colors = ["#f5bc37","#60adfd","#f28b51","#a65bf0","#40e6e2","#fc5d57"]
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-
+ 
 
 class Index extends ComMixin {
 
@@ -45,6 +45,7 @@ class Index extends ComMixin {
     this.renderSwiper = this.renderSwiper.bind(this);
     this.fetchData = this.fetchData.bind(this);
     this.renderAd = this.renderAd.bind(this);
+    this.shareToWechat = this.shareToWechat.bind(this);
 	}
   
   componentDidMount(){
@@ -109,6 +110,28 @@ class Index extends ComMixin {
             </View>
       )
   }
+  shareToWechat(){
+     let link =  "http://app.qq.com/#id=detail&appid=1105861173";
+     WeChat.isWXAppInstalled().then(function(install){
+             if (install) {
+              WeChat.shareToTimeline({
+                type:"news",
+                thumbImage:"https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png",
+                title:"宝贝识动物",
+                description:"宝贝都在玩哟~~~",
+                webpageUrl:link
+              }).then(function(code){
+                if (code==0) {
+                  ToastAndroid.show("分享成功",ToastAndroid.SHORT);
+                }
+              }).catch(function(){
+                ToastAndroid.show("分享失败",ToastAndroid.SHORT);
+              })
+             }
+        }).catch(function(){
+                              
+         })
+  }
 
   renderSwiper(){
       let list = this.state.swiperData;
@@ -128,9 +151,9 @@ class Index extends ComMixin {
                           <TouchableHighlight onPress={() => {
                            _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name}})
                         }}>
-                            <View style={styles.swiperItem}>
+                          <View style={styles.swiperItem}>
                               <Image source={{uri:url}}  style={styles.IndexImg} />
-                            </View>
+                          </View>
                         </TouchableHighlight>
                        </View>
                 )
@@ -152,6 +175,7 @@ class Index extends ComMixin {
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();
+    let name=""
     let ad = this.renderAd();
     if (this.state.load) {
          ad = null;
@@ -164,6 +188,11 @@ class Index extends ComMixin {
         </View>
         <View style={styles.listMain}>
           {main}
+        </View>
+        <View style={styles.shareView}>
+            <Icon.Button name="heart" onPress={this.shareToWechat} color="#f5bc37" backgroundColor="#fff">
+                <Text style={{fontFamily: 'Arial', fontSize: 15}}>分享给朋友</Text>
+            </Icon.Button>
         </View>
         {ad}
       </View>
