@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-17 15:22:57
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-20 19:18:25
+* @Last Modified time: 2017-01-20 19:41:41
 */
 
 'use strict';
@@ -63,10 +63,8 @@ class Header extends Component {
 		         if (install) {
 		         	WeChat.shareToTimeline({
 		         		type:"news",
-		         		thumbImage:"https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png",
-		         		title:"宝贝识动物",
-		         		description:"宝贝都在玩哟~~~",
-		         		webpageUrl:link
+		         		webpageUrl:link,
+		         		title:"宝贝爱学习"
 		         	}).then(function(code){
 		         		if (code==0) {
 		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);
