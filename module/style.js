@@ -10,7 +10,8 @@
 import {
 	StyleSheet,
 	Dimensions,
-	Image
+	Image,
+	Platform
 } from 'react-native';
 
 const w =  Dimensions.get('window').width;
@@ -54,7 +55,8 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.cover
 	},
 	header: {
-		height: 60,
+		height:  Platform.os =='android' ? 60 : 80,
+		paddingTop: Platform.os =='android' ? 0 : 20,
 		width:w,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
@@ -130,11 +132,9 @@ const styles = StyleSheet.create({
 		marginBottom:0
 	},
 	itempic: {
-		width: (w2-10),
+		width: w2,
 		height: 100,
 		marginTop:10,
-		marginLeft:5,
-		marginRight:5,
 		marginBottom:0
 	},
 	row: {
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
 		backgroundColor:"rgba(255,255,255,0.5)",
 		position:"absolute",
 		bottom:0,
-		left:0
+		left:5
 	},
 	swiperItem: {
 		width:w,
@@ -186,10 +186,13 @@ const styles = StyleSheet.create({
 		alignSelf:"center"
 	},
 	ImgView: {
-		width:w2,
+		width:(w2-10),
 		height: 100,
 		alignSelf: "center",
 		borderRadius:5,
+		justifyContent:"center",
+		marginLeft:5,
+		marginRight:5
 	},
 	IndexImg:{
 		width:w,
