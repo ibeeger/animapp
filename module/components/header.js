@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-17 15:22:57
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-02-06 11:31:05
+* @Last Modified time: 2017-02-06 14:17:32
 */
 
 'use strict';
@@ -58,13 +58,16 @@ class Header extends Component {
 	}
 	
 	shareToWechat(){
+		 let pic = this.props.picurl || "https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png";
 		 let link = this.props.sharelink || "http://app.qq.com/#id=detail&appid=1105861173";
+		 let title = this.props.sharetitle || "宝贝识动物";
 		 WeChat.isWXAppInstalled().then(function(install){
 		         if (install) {
 		         	WeChat.shareToTimeline({
 		         		type:"news",
-		         		webpageUrl:link,
-		         		title:"宝贝识别动物"
+		         		webpageUrl:link+"?app=anims",
+		         		thumbImage:pic,
+		         		title:title
 		         	}).then(function(code){
 		         		if (code==0) {
 		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);

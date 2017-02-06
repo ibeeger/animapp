@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-02-06 11:28:22
+* @Last Modified time: 2017-02-06 11:50:05
 */
 
 'use strict';
@@ -127,7 +127,7 @@ class Index extends ComMixin {
               if (item.link) {
                 return (<View style={styles.swiperItem} key={i}>
                           <TouchableHighlight onPress={() => {
-                           _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name}})
+                           _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name,picurl:url}})
                         }}>
                           <View style={styles.swiperItem}>
                               <Image source={{uri:url}}  style={styles.IndexImg} />
