@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-17 15:22:57
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-20 19:41:41
+* @Last Modified time: 2017-02-06 11:31:05
 */
 
 'use strict';
@@ -64,7 +64,7 @@ class Header extends Component {
 		         	WeChat.shareToTimeline({
 		         		type:"news",
 		         		webpageUrl:link,
-		         		title:"宝贝爱学习"
+		         		title:"宝贝识别动物"
 		         	}).then(function(code){
 		         		if (code==0) {
 		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);
