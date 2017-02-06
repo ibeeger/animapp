@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-20 19:30:50
+ * @Last Modified time: 2017-02-06 18:45:57
  */
 
 'use strict';
@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.cover
 	},
 	header: {
-		height:  Platform.os =='android' ? 60 : 80,
-		paddingTop: Platform.os =='android' ? 0 : 20,
+		height:  Platform.OS =='android' ? 60 : 80,
+		paddingTop: Platform.OS =='android' ? 0 : 20,
 		width:w,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
@@ -229,6 +229,25 @@ const styles = StyleSheet.create({
 		right:7,
 		top:5,
 		borderRadius:20,
+	},
+	shareBtnOut:{
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+		width:40,
+		height:40,
+		position:"absolute",
+		left:7,
+		top:5,
+		borderRadius:20,
+	},
+	shareBtn:{
+		width:40,
+		height:40,
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+		borderRadius:20
 	},
 	playBtn:{
 		width:40,
