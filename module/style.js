@@ -55,13 +55,8 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.cover
 	},
 	header: {
-<<<<<<< HEAD
-		height: 80,
-		paddingTop:20,
-=======
 		height:  Platform.OS =='android' ? 60 : 80,
 		paddingTop: Platform.OS =='android' ? 0 : 20,
->>>>>>> v1.0.6
 		width:w,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
@@ -206,9 +201,6 @@ const styles = StyleSheet.create({
 		width:w,
 		alignSelf:"center"
 	},
-<<<<<<< HEAD
-	
-=======
 	ImgView: {
 		width:(w2-10),
 		height: 100,
@@ -218,7 +210,6 @@ const styles = StyleSheet.create({
 		marginLeft:5,
 		marginRight:5
 	},
->>>>>>> v1.0.6
 	IndexImg:{
 		width:w,
 		height:200,

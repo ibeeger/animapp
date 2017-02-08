@@ -20,7 +20,6 @@ import {
 } from 'react-native';
 
 import styles from "../style"
-import * as WeChat from 'react-native-wechat';
  
 import Icon from 'react-native-vector-icons/EvilIcons';
 
@@ -58,27 +57,7 @@ class Header extends Component {
 	}
 	
 	shareToWechat(){
-		 let pic = this.props.picurl || "https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png";
-		 let link = this.props.sharelink || "http://app.qq.com/#id=detail&appid=1105861173";
-		 let title = this.props.sharetitle || "宝贝识动物";
-		 WeChat.isWXAppInstalled().then(function(install){
-		         if (install) {
-		         	WeChat.shareToTimeline({
-		         		type:"news",
-		         		webpageUrl:link+"?app=anims",
-		         		thumbImage:pic,
-		         		title:title
-		         	}).then(function(code){
-		         		if (code==0) {
-		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);
-		         		}
-		         	}).catch(function(){
-		         		ToastAndroid.show("分享失败",ToastAndroid.SHORT);
-		         	})
-		         }
-				}).catch(function(){
-										          
-		     })
+		
 	}
 
 	renderShare(){

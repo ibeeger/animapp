@@ -21,7 +21,6 @@ import {
   Platform,
   ToastAndroid
 } from 'react-native';
-import * as WeChat from 'react-native-wechat';
 import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
@@ -133,13 +132,8 @@ class Index extends ComMixin {
               };
               if (item.link) {
                 return (<View style={styles.swiperItem} key={i}>
-<<<<<<< HEAD
-                          <TouchableHighlight underlayColor="rgba(255,255,255,.1)" onPress={() => {
-                           _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name}})
-=======
                           <TouchableHighlight onPress={() => {
                            _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name,picurl:url}})
->>>>>>> v1.0.6
                         }}>
                           <View style={styles.swiperItem}>
                               <Image source={{uri:url}}  style={styles.IndexImg} />

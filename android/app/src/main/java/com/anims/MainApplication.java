@@ -3,11 +3,7 @@ package com.anims;
 import android.app.Application;
 import android.util.Log;
 import com.facebook.react.ReactApplication;
-<<<<<<< HEAD
 import net.no_mad.tts.TextToSpeechPackage;
-=======
-import com.oblador.vectoricons.VectorIconsPackage;
->>>>>>> v1.0.6
 import com.theweflex.react.WeChatPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
@@ -32,11 +28,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-<<<<<<< HEAD
-            new TextToSpeechPackage(),
-=======
-            new VectorIconsPackage(),
->>>>>>> v1.0.6
             new WeChatPackage(),
             new VectorIconsPackage(),
             new RNDeviceInfo(),

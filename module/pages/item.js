@@ -17,13 +17,8 @@ import {
   ScrollView
 } from 'react-native';
 
-<<<<<<< HEAD
-import TTS from "react-native-speech"
 
-=======
 import TTS from "react-native-tts"
-import * as WeChat from 'react-native-wechat';
->>>>>>> v1.0.6
 import styles from "../style.js"
 import Util from "../util.js"
 import Header from "../components/header"
@@ -44,9 +39,7 @@ class Item extends ComMixin {
 	  	data:null,
 	  	msg:"...",
 	  };
-
       TTS.resume();
-
       this.loadImg = this.loadImg.bind(this);
       this.playName = this.playName.bind(this);
       this.changeAnimPrev = this.changeAnimPrev.bind(this);
@@ -176,27 +169,7 @@ class Item extends ComMixin {
 	}
 
 	shareToWechat(){
-		let pic = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/small/"+this.state.img || "https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png";
-		 let link =  "http://api.ibeeger.com/learnapi/anims/"+this.props.type+"/"+this.state.id;
-		 let title =  this.state.name+"_宝贝识动物";
-		 WeChat.isWXAppInstalled().then(function(install){
-		         if (install) {
-		         	WeChat.shareToTimeline({
-		         		type:"news",
-		         		webpageUrl:link,
-		         		thumbImage:pic,
-		         		title:title
-		         	}).then(function(code){
-		         		if (code==0) {
-		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);
-		         		}
-		         	}).catch(function(){
-		         		ToastAndroid.show("分享失败",ToastAndroid.SHORT);
-		         	})
-		         }
-				}).catch(function(){
-										          
-		     })
+		 
 	}
 
 

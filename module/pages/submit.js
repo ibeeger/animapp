@@ -25,12 +25,7 @@ import styles from "../style.js"
 import Util from "../util.js"
 import Header from "../components/header"
 import Device from "react-native-device-info"
-<<<<<<< HEAD
-
 const VERSION = Device.getVersion();
-=======
- 
->>>>>>> v1.0.6
 const w2 =  Dimensions.get('window').width/2;
 class Submit extends Component {
 
