@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-05 16:34:02
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 16:34:08
+* @Last Modified time: 2017-02-06 11:50:05
 */
 
 'use strict';
@@ -21,17 +21,17 @@ import {
   Platform,
   ToastAndroid
 } from 'react-native';
-
+import * as WeChat from 'react-native-wechat';
 import styles from "../style"
 import Util from "../util.js"
 import Swiper from 'react-native-swiper'
-
+import Icon from 'react-native-vector-icons/EvilIcons';
 import ComMixin from "./mixin"
-
+import Header from "../components/header"
 const colors = ["#f5bc37","#60adfd","#f28b51","#a65bf0","#40e6e2","#fc5d57"]
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-
+ 
 
 class Index extends ComMixin {
 
@@ -116,6 +116,7 @@ class Index extends ComMixin {
             </View>
       )
   }
+  
 
   renderSwiper(){
       let list = this.state.swiperData;
@@ -132,12 +133,17 @@ class Index extends ComMixin {
               };
               if (item.link) {
                 return (<View style={styles.swiperItem} key={i}>
+<<<<<<< HEAD
                           <TouchableHighlight underlayColor="rgba(255,255,255,.1)" onPress={() => {
                            _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name}})
+=======
+                          <TouchableHighlight onPress={() => {
+                           _this.props.navigator.push({id:"webpage",index:0,params:{link:item.link,name:name,picurl:url}})
+>>>>>>> v1.0.6
                         }}>
-                            <View style={styles.swiperItem}>
+                          <View style={styles.swiperItem}>
                               <Image source={{uri:url}}  style={styles.IndexImg} />
-                            </View>
+                          </View>
                         </TouchableHighlight>
                        </View>
                 )
@@ -155,13 +161,11 @@ class Index extends ComMixin {
              </Swiper>
         )
       }
-      
   }
-
- 
   
 	render(){
     let main = this.renderList(),swiper = this.renderLoad();
+    let name=""
     let ad = this.renderAd();
     if (this.state.load) {
          ad = null;

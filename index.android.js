@@ -32,7 +32,7 @@ export default class Anims extends Component {
   }
 
   componentWillMount() {
-     WeChat.registerApp("1105861173");
+     WeChat.registerApp("wxb7994c07c6a1d105");
     if (Platform.OS === 'android') {
       BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);
     }

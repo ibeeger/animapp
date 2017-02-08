@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-07 15:53:58
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 13:49:23
+* @Last Modified time: 2017-02-06 14:17:15
 */
 
 'use strict';
@@ -30,22 +30,26 @@ export default  class WebPage extends Component{
 	  super(props);
 	  this.state = {
 	  	 url:props.link,
-	  	 name:props.name || "精选文章推荐",
+	  	 name: "精选文章推荐",
+	  	 sharetitle:"精选文章",
 	  	 scalesPageToFit:true
 	  };
-	  console.log(this.state.url)
+	  this.onNavigationStateChange = this.onNavigationStateChange.bind(this);
 	}
 
-	onNavigationStateChange(){
-
+	onNavigationStateChange(navState){
+		this.setState({
+			sharetitle:navState.title
+		})
 	}
 
 	render(){
 		let navigator = this.props.navigator;
+		let sharetitle = this.state.sharetitle;
 		let title = this.state.name;
 
 		return (<View style={styles.main}>
-				<Header navigator={navigator} title={title} hasfeedback={false} hasshare={true} sharelink={this.props.link} />
+				<Header navigator={navigator} title={title} sharetitle={sharetitle} hasfeedback={false} hasshare={true} sharelink={this.props.link}  picurl={this.props.picurl} />
 					<View style={styles.container}>
 					 <WebView
 			          automaticallyAdjustContentInsets={true}
@@ -55,6 +59,7 @@ export default  class WebPage extends Component{
 			          domStorageEnabled={true}
 			          startInLoadingState={true}
 			          scalesPageToFit={true}
+			          onNavigationStateChange={this.onNavigationStateChange}
 			          /></View>
         </View>
         )

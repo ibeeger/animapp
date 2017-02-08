@@ -2,7 +2,7 @@
 * @Author: ibeeger
 * @Date:   2017-01-06 14:17:36
 * @Last Modified by:   ibeeger
-* @Last Modified time: 2017-01-18 15:51:38
+* @Last Modified time: 2017-02-06 19:23:59
 */
 
 'use strict';
@@ -17,8 +17,13 @@ import {
   ScrollView
 } from 'react-native';
 
+<<<<<<< HEAD
 import TTS from "react-native-speech"
 
+=======
+import TTS from "react-native-tts"
+import * as WeChat from 'react-native-wechat';
+>>>>>>> v1.0.6
 import styles from "../style.js"
 import Util from "../util.js"
 import Header from "../components/header"
@@ -27,7 +32,7 @@ import ComMixin from "./mixin"
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 const PlayBtn = (<Icon name="play" size={45} color="#fc5d57" />)
-
+const ShareBtn = (<Icon name="share-google" size={45} color="#fc5d57" />)
 
 class Item extends ComMixin {
 	constructor(props) {
@@ -46,6 +51,7 @@ class Item extends ComMixin {
       this.playName = this.playName.bind(this);
       this.changeAnimPrev = this.changeAnimPrev.bind(this);
       this.changeAnimNext = this.changeAnimNext.bind(this);
+      this.shareToWechat = this.shareToWechat.bind(this);
 	}
 
 	componentDidMount() {
@@ -56,6 +62,7 @@ class Item extends ComMixin {
 		      		  let _data = data.data[0];
 		      	     setTimeout(function(){
 				      		  _this.setState({
+				      		  	  id:props._id,
 						          load:true,
 						    	  arr:props.arr,
 						    	  title:(props.cur*1+1)+"/"+props.arr.length,
@@ -102,6 +109,7 @@ class Item extends ComMixin {
 			if (data.code == 0) {
 				let _data = data.data[0];
 				_this.setState({
+					id:_id,
 					load: true,
 					title:(prev*1+1)+"/"+_this.state.arr.length,
 					ename: _data.ename,
@@ -143,6 +151,7 @@ class Item extends ComMixin {
 				let _data = data.data[0];
 				_this.setState({
 					load: true,
+					id:_id,
 					title:(next*1+1)+"/"+_this.state.arr.length,
 					ename: _data.ename,
 					pinyin: _data.pinyin,
@@ -166,6 +175,29 @@ class Item extends ComMixin {
 		})
 	}
 
+	shareToWechat(){
+		let pic = "http://oss.files.ibeeger.com/anims/"+this.props.type+"/small/"+this.state.img || "https://mmbiz.qlogo.cn/mmbiz_png/Unz6CCByV0qDe3BLqt1ZrEOdXj2EKqM6saz6DBicsRGjjFBj5B09icfiboXuu8RIGePbqesG9LAX2ia3PDJnw0JmWw/0?wx_fmt=png";
+		 let link =  "http://api.ibeeger.com/learnapi/anims/"+this.props.type+"/"+this.state.id;
+		 let title =  this.state.name+"_宝贝识动物";
+		 WeChat.isWXAppInstalled().then(function(install){
+		         if (install) {
+		         	WeChat.shareToTimeline({
+		         		type:"news",
+		         		webpageUrl:link,
+		         		thumbImage:pic,
+		         		title:title
+		         	}).then(function(code){
+		         		if (code==0) {
+		         			ToastAndroid.show("分享成功",ToastAndroid.SHORT);
+		         		}
+		         	}).catch(function(){
+		         		ToastAndroid.show("分享失败",ToastAndroid.SHORT);
+		         	})
+		         }
+				}).catch(function(){
+										          
+		     })
+	}
 
 
 	playName(){
@@ -222,6 +254,15 @@ class Item extends ComMixin {
 								       </View>
 						      		 </TouchableHighlight>
 					      		  </View>
+
+					      		   <View style={styles.shareBtnOut}> 
+									<TouchableHighlight  underlayColor="rgba(255,255,255,.1)" onPress={this.shareToWechat}>
+								       <View style={styles.shareBtn}> 
+								       		{ShareBtn}
+								       </View>
+						      		 </TouchableHighlight>
+					      		  </View>
+
 					      		  <View style={styles.prevNextView}>
 					      		 	 <View style={styles.prevView}>
 					      		 	 	<TouchableHighlight onPress={this.changeAnimPrev}>

@@ -2,7 +2,7 @@
  * @Author: ibeeger
  * @Date:   2016-12-28 19:01:10
  * @Last Modified by:   ibeeger
- * @Last Modified time: 2017-01-18 15:51:14
+ * @Last Modified time: 2017-02-06 18:45:57
  */
 
 'use strict';
@@ -10,7 +10,8 @@
 import {
 	StyleSheet,
 	Dimensions,
-	Image
+	Image,
+	Platform
 } from 'react-native';
 
 const w =  Dimensions.get('window').width;
@@ -23,6 +24,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor:"#fff"
 	},
+	sharBtn:{
+		width:160,
+		height:30
+	},	
 	adBox:{
 		flex:1,
 		width:w,
@@ -50,8 +55,13 @@ const styles = StyleSheet.create({
 		resizeMode: Image.resizeMode.cover
 	},
 	header: {
+<<<<<<< HEAD
 		height: 80,
 		paddingTop:20,
+=======
+		height:  Platform.OS =='android' ? 60 : 80,
+		paddingTop: Platform.OS =='android' ? 0 : 20,
+>>>>>>> v1.0.6
 		width:w,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
@@ -196,7 +206,19 @@ const styles = StyleSheet.create({
 		width:w,
 		alignSelf:"center"
 	},
+<<<<<<< HEAD
 	
+=======
+	ImgView: {
+		width:(w2-10),
+		height: 100,
+		alignSelf: "center",
+		borderRadius:5,
+		justifyContent:"center",
+		marginLeft:5,
+		marginRight:5
+	},
+>>>>>>> v1.0.6
 	IndexImg:{
 		width:w,
 		height:200,
@@ -220,7 +242,7 @@ const styles = StyleSheet.create({
 		paddingTop:20,
 	},
 	pinyinText:{
-		fontSize:36,
+		fontSize:30,
 	},
 	playBtnOut:{
 		alignSelf:"center",
@@ -232,6 +254,25 @@ const styles = StyleSheet.create({
 		right:7,
 		top:5,
 		borderRadius:20,
+	},
+	shareBtnOut:{
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+		width:40,
+		height:40,
+		position:"absolute",
+		left:7,
+		top:5,
+		borderRadius:20,
+	},
+	shareBtn:{
+		width:40,
+		height:40,
+		alignSelf:"center",
+		justifyContent:"center",
+		alignItems:"center",
+		borderRadius:20
 	},
 	playBtn:{
 		width:40,
@@ -246,7 +287,7 @@ const styles = StyleSheet.create({
 		color:"#fff",
 	},
 	nameText:{
-		fontSize:50
+		fontSize:40
 	},
 	BigImg: {
 		resizeMode: Image.resizeMode.cover,
